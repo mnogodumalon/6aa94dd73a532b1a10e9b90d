@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": ["kundentyp"],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Namen, Kontakt, Adresse, Kundentyp). Keine Numerik, keine Preise, keine berechenbaren Beziehungen."
+    },
+    "Mitarbeiter": {
+      "placeholders_set": 6,
+      "defaults_keys": ["rolle", "status"],
+      "computed_keys": [],
+      "reason": "Stammdaten-Quelle für Lookups (Rolle, Status) und Preise (Stundensatz). Keine internen Berechnungen — Stundensatz ist die Quelldaten, nicht das Ziel."
+    },
+    "Teilebestand": {
+      "placeholders_set": 8,
+      "defaults_keys": ["bestand", "mindestbestand"],
+      "computed_keys": ["_gewinn_pro_stück", "_gesamtgewinn"],
+      "reason": "Lagerverwaltung mit Einkaufs- und Verkaufspreisen. Virtuelle Gewinn-Berechnungen (Verkaufspreis − Einkaufspreis je Stück, Gesamtgewinn = Gewinn × Bestand) für Analyse und Überwachung."
+    },
+    "Fahrzeuge": {
+      "placeholders_set": 8,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Kfz-Stammdaten mit Merkmalen (Marke, Modell, Erstzulassung, HU-Fällig, Kilometerstand). Keine berechenbaren Beziehungen — Daten sind Eingaben, keine Ableitungen."
+    },
+    "Aufträge": {
+      "placeholders_set": 9,
+      "defaults_keys": ["annahmedatum", "status"],
+      "computed_keys": ["_auftrags_dauer_tage"],
+      "reason": "Auftragsverwaltung mit Datumspaar (Annahme/Fertigstellung). Virtuelle Dauer-Berechnung (dateDiff) für Übersicht. Arbeitskosten sind nicht lokal berechenbar — sie liegen in Auftragspositionen und werden dort aggregiert."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 8,
+      "defaults_keys": ["positionstyp", "menge"],
+      "computed_keys": ["_posten_kosten", "_gesamt_position"],
+      "reason": "Arbeits- und Material-Posten zu Aufträgen. MODUS-2 Conditional: je nach Positionstyp (Arbeit/Teil) werden Kosten unterschiedlich berechnet — Arbeit: Stundensatz (applookup Mechaniker) × Dauer; Teil: Verkaufspreis (applookup Teilebestand) × Menge. Fallback auf Einzelpreis × Menge."
+    },
+    "Rechnungen": {
+      "placeholders_set": 10,
+      "defaults_keys": ["rechnungsdatum", "status", "faelligkeit"],
+      "computed_keys": ["mwst", "bruttobetrag"],
+      "reason": "Fakturierung mit klarer Netto-Brutto-Trennung (Backend hat nettobetrag, mwst, bruttobetrag-Felder). Berechnungen: MwSt = Netto × 0,19; Brutto = Netto + MwSt. Nettobetrag selbst ist manueller Input oder Mapping aus Auftragspositionen-Aggregate."
+    }
+  }
+}

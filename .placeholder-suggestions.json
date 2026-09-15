@@ -1,0 +1,75 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "kundentyp": "Wähle einen Kundentyp",
+    "telefon": "z. B. 089 12345678",
+    "email": "z. B. max.mueller@example.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 80335",
+    "ort": "z. B. München",
+    "notizen": "Spezielle Wünsche, Allergien, Besonderheiten..."
+  },
+  "MitarbeiterDialog.tsx": {
+    "vorname": "z. B. Anna",
+    "nachname": "z. B. Schmidt",
+    "rolle": "Wähle eine Rolle",
+    "stundensatz": "z. B. 45",
+    "status": "Wähle den Status",
+    "email": "z. B. anna.schmidt@brandl.de"
+  },
+  "TeilebestandDialog.tsx": {
+    "artikelnummer": "z. B. T-2026-001",
+    "bezeichnung": "z. B. Bremsbelag Vorne",
+    "hersteller": "z. B. Bosch",
+    "einkaufspreis": "z. B. 25,50",
+    "verkaufspreis": "z. B. 39,99",
+    "bestand": "z. B. 12",
+    "mindestbestand": "z. B. 5",
+    "lagerplatz": "z. B. C3-42"
+  },
+  "FahrzeugeDialog.tsx": {
+    "kennzeichen": "z. B. M-BL-2026",
+    "marke": "z. B. BMW",
+    "modell": "z. B. 3er",
+    "erstzulassung": "Wann war die Erstzulassung?",
+    "kilometerstand": "z. B. 85000",
+    "fahrgestellnummer": "z. B. WBA1234567890",
+    "hu_faellig": "Wann ist die HU fällig?",
+    "halter": "Welcher Kunde hält das Fahrzeug?"
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-0042",
+    "fahrzeug": "Welches Fahrzeug wird repariert?",
+    "annahmedatum": "Wann nimmt die Werkstatt an?",
+    "fertigstellungstermin": "Wann soll es fertig sein?",
+    "kundenwunsch": "Was wünscht der Kunde? Fehler, Inspektionen, Revisionen...",
+    "status": "Wähle den Status",
+    "mechaniker": "Wer ist der zuständige Mechaniker?",
+    "kilometerstand_annahme": "z. B. 85000",
+    "notizen": "Zusätzliche Anmerkungen, Besonderheiten..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Welchem Auftrag gehört diese Position?",
+    "positionstyp": "Ist das Arbeit oder ein Teil?",
+    "bezeichnung": "z. B. Ölwechsel, Bremsbelag-Set",
+    "menge": "z. B. 1",
+    "einzelpreis": "z. B. 45,00",
+    "mechaniker": "Wer führt die Arbeit durch?",
+    "dauer_stunden": "z. B. 1,5",
+    "teil": "Welches Teil wird verwendet?"
+  },
+  "RechnungenDialog.tsx": {
+    "rechnungsnummer": "z. B. R-2026-0042",
+    "auftrag": "Welcher Auftrag wird berechnet?",
+    "kunde": "Welchem Kunden rechnen wir?",
+    "rechnungsdatum": "Wann wurde die Rechnung ausgestellt?",
+    "faelligkeit": "Bis wann ist die Zahlung fällig?",
+    "nettobetrag": "z. B. 234,50",
+    "mwst": "z. B. 44,55",
+    "bruttobetrag": "z. B. 279,05",
+    "status": "Wähle den Status",
+    "zahlungseingang": "Wann ist die Zahlung eingegangen?"
+  }
+}
