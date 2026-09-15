@@ -20,6 +20,7 @@
 import type { ComponentType } from 'react';
 
 // <custom:intent-imports>
+import { IconClipboardPlus, IconCircleDot, IconReceiptEuro } from '@tabler/icons-react';
 // </custom:intent-imports>
 
 export interface IntentLink {
@@ -42,6 +43,9 @@ export interface IntentLink {
 
 export const INTENTS: IntentLink[] = [
   // <custom:intents>
+  { path: '/intents/neuer-auftrag', label: { de: 'Neuer Auftrag', en: 'New order' }, icon: IconClipboardPlus, description: 'Fahrzeug auswählen und Auftrag in 4 Schritten anlegen' },
+  { path: '/intents/position-hinzufuegen', label: { de: 'Position buchen', en: 'Add position' }, icon: IconCircleDot, description: 'Arbeitszeit oder Ersatzteil zu einem offenen Auftrag buchen' },
+  { path: '/intents/auftrag-abrechnen', label: { de: 'Auftrag abrechnen', en: 'Invoice order' }, icon: IconReceiptEuro, description: 'Fertigen Auftrag abrechnen und Rechnung anlegen' },
   // </custom:intents>
 ];
 
@@ -52,7 +56,7 @@ export const INTENTS: IntentLink[] = [
  * purpose — a scaffold update resets it to false (self-healing if Phase 2
  * never ran).
  */
-export const INTENTS_PENDING = true;
+export const INTENTS_PENDING = false;
 
 /**
  * When the Phase-1 bundle was deployed (ISO, set by the service together with

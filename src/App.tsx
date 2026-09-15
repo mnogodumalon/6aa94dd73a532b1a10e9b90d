@@ -10,6 +10,10 @@ import DashboardReady from '@/pages/DashboardReady';
 import PublicPagesAdmin from '@/pages/PublicPagesAdmin';
 import IntentsAdmin from '@/pages/IntentsAdmin';
 // <custom:imports>
+const IntentNeuerAuftragPage = lazy(() => import('@/pages/intents/NeuerAuftragPage'));
+import { DashboardSkeleton } from '@/components/DashboardStates';
+const IntentPositionHinzufuegenPage = lazy(() => import('@/pages/intents/PositionHinzufuegenPage'));
+const IntentAuftragAbrechnungPage = lazy(() => import('@/pages/intents/AuftragAbrechnungPage'));
 // </custom:imports>
 
 // Lazy: public pages live outside <Layout> and only load on /#/public/:slug —
@@ -77,6 +81,9 @@ export default function App() {
                 <Route path="verwaltung/ablaeufe" element={<IntentsAdmin />} />
                 <Route path="verwaltung/oeffentliche-seiten" element={<PublicPagesAdmin />} />
                 {/* <custom:routes> */}
+                <Route path="intents/neuer-auftrag" element={<Suspense fallback={<DashboardSkeleton />}><IntentNeuerAuftragPage /></Suspense>} />
+                <Route path="intents/position-hinzufuegen" element={<Suspense fallback={<DashboardSkeleton />}><IntentPositionHinzufuegenPage /></Suspense>} />
+                <Route path="intents/auftrag-abrechnen" element={<Suspense fallback={<DashboardSkeleton />}><IntentAuftragAbrechnungPage /></Suspense>} />
                 {/* </custom:routes> */}
                 {/* An unknown hash (a bookmark from before a rebuild renamed the
                     flows, a mistyped link) must not be a blank page. */}
