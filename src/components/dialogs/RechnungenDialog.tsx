@@ -386,7 +386,7 @@ export function RechnungenDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="rechnungsnummer">{fieldLabel('rechnungen', 'rechnungsnummer')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="rechnungsnummer"
-          placeholder="z. B. RG-2026-0001"
+          placeholder=""
           value={fields.rechnungsnummer ?? ''}
           onChange={e => setFields(f => ({ ...f, rechnungsnummer: e.target.value }))}
           required
@@ -401,7 +401,7 @@ export function RechnungenDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="auftrag">{fieldLabel('rechnungen', 'auftrag')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Combobox
           id="auftrag"
-          placeholder="Zu welchem Auftrag?"
+          placeholder=""
           items={auftraegeListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.auftragsnummer ?? r.record_id),
@@ -421,7 +421,7 @@ export function RechnungenDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="kunde">{fieldLabel('rechnungen', 'kunde')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Combobox
           id="kunde"
-          placeholder="Welcher Kunde?"
+          placeholder=""
           items={kundenListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.vorname ?? r.record_id),
@@ -441,7 +441,7 @@ export function RechnungenDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="rechnungsdatum">{fieldLabel('rechnungen', 'rechnungsdatum')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <DatePicker
           id="rechnungsdatum"
-          placeholder="Ausstellungsdatum?"
+          placeholder=""
           mode="date"
           value={fields.rechnungsdatum ?? null}
           onChange={v => setFields(f => ({ ...f, rechnungsdatum: v ?? undefined }))}
@@ -457,7 +457,7 @@ export function RechnungenDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="faelligkeit">{fieldLabel('rechnungen', 'faelligkeit')}</Label>
         <DatePicker
           id="faelligkeit"
-          placeholder="Zahlungsfrist (Standard: 14 Tage)?"
+          placeholder=""
           mode="date"
           value={fields.faelligkeit ?? null}
           onChange={v => setFields(f => ({ ...f, faelligkeit: v ?? undefined }))}
@@ -473,7 +473,7 @@ export function RechnungenDialog({ open, onClose, onSubmit, defaultValues, recor
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'nettobetrag')}
-          placeholder="z. B. 1234,56"
+          placeholder=""
           value={fields.nettobetrag !== undefined ? fields.nettobetrag : (computedValues['nettobetrag'] ?? '')}
           onChange={e => setFields(f => ({ ...f, nettobetrag: clampNumberValue(formEnhancements, 'nettobetrag', e.target.value) }))}
         />
@@ -488,7 +488,7 @@ export function RechnungenDialog({ open, onClose, onSubmit, defaultValues, recor
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'mwst')}
-          placeholder="Wird automatisch berechnet"
+          placeholder=""
           value={fields.mwst !== undefined ? fields.mwst : (computedValues['mwst'] ?? '')}
           onChange={e => setFields(f => ({ ...f, mwst: clampNumberValue(formEnhancements, 'mwst', e.target.value) }))}
         />
@@ -503,7 +503,7 @@ export function RechnungenDialog({ open, onClose, onSubmit, defaultValues, recor
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'bruttobetrag')}
-          placeholder="Wird automatisch berechnet"
+          placeholder=""
           value={fields.bruttobetrag !== undefined ? fields.bruttobetrag : (computedValues['bruttobetrag'] ?? '')}
           onChange={e => setFields(f => ({ ...f, bruttobetrag: clampNumberValue(formEnhancements, 'bruttobetrag', e.target.value) }))}
         />
@@ -563,7 +563,7 @@ export function RechnungenDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="zahlungseingang">{fieldLabel('rechnungen', 'zahlungseingang')}</Label>
         <DatePicker
           id="zahlungseingang"
-          placeholder="Wann bezahlt?"
+          placeholder=""
           mode="date"
           value={fields.zahlungseingang ?? null}
           onChange={v => setFields(f => ({ ...f, zahlungseingang: v ?? undefined }))}

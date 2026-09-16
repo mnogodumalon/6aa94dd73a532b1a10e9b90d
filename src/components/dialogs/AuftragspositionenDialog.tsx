@@ -403,7 +403,7 @@ export function AuftragspositionenDialog({ open, onClose, onSubmit, defaultValue
         <Label htmlFor="auftrag">{fieldLabel('auftragspositionen', 'auftrag')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Combobox
           id="auftrag"
-          placeholder="Zu welchem Auftrag?"
+          placeholder=""
           items={auftraegeListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.auftragsnummer ?? r.record_id),
@@ -459,7 +459,7 @@ export function AuftragspositionenDialog({ open, onClose, onSubmit, defaultValue
         <Label htmlFor="bezeichnung">{fieldLabel('auftragspositionen', 'bezeichnung')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="bezeichnung"
-          placeholder="z. B. Bremsbelag wechseln"
+          placeholder=""
           value={fields.bezeichnung ?? ''}
           onChange={e => setFields(f => ({ ...f, bezeichnung: e.target.value }))}
           required
@@ -478,7 +478,7 @@ export function AuftragspositionenDialog({ open, onClose, onSubmit, defaultValue
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'menge')}
-          placeholder="z. B. 1"
+          placeholder=""
           value={fields.menge !== undefined ? fields.menge : (computedValues['menge'] ?? '')}
           onChange={e => setFields(f => ({ ...f, menge: clampNumberValue(formEnhancements, 'menge', e.target.value) }))}
         />
@@ -496,7 +496,7 @@ export function AuftragspositionenDialog({ open, onClose, onSubmit, defaultValue
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'einzelpreis')}
-          placeholder="z. B. 45,00"
+          placeholder=""
           value={fields.einzelpreis !== undefined ? fields.einzelpreis : (computedValues['einzelpreis'] ?? '')}
           onChange={e => setFields(f => ({ ...f, einzelpreis: clampNumberValue(formEnhancements, 'einzelpreis', e.target.value) }))}
         />
@@ -510,7 +510,7 @@ export function AuftragspositionenDialog({ open, onClose, onSubmit, defaultValue
         <Label htmlFor="mechaniker">{fieldLabel('auftragspositionen', 'mechaniker')}</Label>
         <Combobox
           id="mechaniker"
-          placeholder="Zuständiger Mechaniker?"
+          placeholder=""
           items={mitarbeiterListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.vorname ?? r.record_id),
@@ -531,7 +531,7 @@ export function AuftragspositionenDialog({ open, onClose, onSubmit, defaultValue
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'dauer_stunden')}
-          placeholder="z. B. 1,5"
+          placeholder=""
           value={fields.dauer_stunden !== undefined ? fields.dauer_stunden : (computedValues['dauer_stunden'] ?? '')}
           onChange={e => setFields(f => ({ ...f, dauer_stunden: clampNumberValue(formEnhancements, 'dauer_stunden', e.target.value) }))}
         />
@@ -542,7 +542,7 @@ export function AuftragspositionenDialog({ open, onClose, onSubmit, defaultValue
         <Label htmlFor="teil">{fieldLabel('auftragspositionen', 'teil')}</Label>
         <Combobox
           id="teil"
-          placeholder="Welches Teil verwenden?"
+          placeholder=""
           items={teilebestandListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.artikelnummer ?? r.record_id),

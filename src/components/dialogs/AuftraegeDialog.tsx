@@ -376,7 +376,7 @@ export function AuftraegeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="auftragsnummer">{fieldLabel('auftraege', 'auftragsnummer')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="auftragsnummer"
-          placeholder="z. B. AU-2026-001"
+          placeholder=""
           value={fields.auftragsnummer ?? ''}
           onChange={e => setFields(f => ({ ...f, auftragsnummer: e.target.value }))}
           required
@@ -391,7 +391,7 @@ export function AuftraegeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="fahrzeug">{fieldLabel('auftraege', 'fahrzeug')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Combobox
           id="fahrzeug"
-          placeholder="Welches Fahrzeug?"
+          placeholder=""
           items={fahrzeugeListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.kennzeichen ?? r.record_id),
@@ -411,7 +411,7 @@ export function AuftraegeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="annahmedatum">{fieldLabel('auftraege', 'annahmedatum')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <DatePicker
           id="annahmedatum"
-          placeholder="Wann angenommen?"
+          placeholder=""
           mode="date"
           value={fields.annahmedatum ?? null}
           onChange={v => setFields(f => ({ ...f, annahmedatum: v ?? undefined }))}
@@ -427,7 +427,7 @@ export function AuftraegeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="fertigstellungstermin">{fieldLabel('auftraege', 'fertigstellungstermin')}</Label>
         <DatePicker
           id="fertigstellungstermin"
-          placeholder="Wann fertig?"
+          placeholder=""
           mode="date"
           value={fields.fertigstellungstermin ?? null}
           onChange={v => setFields(f => ({ ...f, fertigstellungstermin: v ?? undefined }))}
@@ -439,7 +439,7 @@ export function AuftraegeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="kundenwunsch">{fieldLabel('auftraege', 'kundenwunsch')}</Label>
         <Textarea
           id="kundenwunsch"
-          placeholder="Was soll gemacht werden? Beschreibung, Symptome..."
+          placeholder=""
           value={fields.kundenwunsch ?? ''}
           onChange={e => setFields(f => ({ ...f, kundenwunsch: e.target.value }))}
           rows={3}
@@ -526,7 +526,7 @@ export function AuftraegeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="mechaniker">{fieldLabel('auftraege', 'mechaniker')}</Label>
         <Combobox
           id="mechaniker"
-          placeholder="Welcher Mechaniker?"
+          placeholder=""
           items={mitarbeiterListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.vorname ?? r.record_id),
@@ -547,7 +547,7 @@ export function AuftraegeDialog({ open, onClose, onSubmit, defaultValues, record
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'kilometerstand_annahme')}
-          placeholder="z. B. 125050"
+          placeholder=""
           value={fields.kilometerstand_annahme !== undefined ? fields.kilometerstand_annahme : (computedValues['kilometerstand_annahme'] ?? '')}
           onChange={e => setFields(f => ({ ...f, kilometerstand_annahme: clampNumberValue(formEnhancements, 'kilometerstand_annahme', e.target.value) }))}
         />
@@ -558,7 +558,7 @@ export function AuftraegeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="notizen">{fieldLabel('auftraege', 'notizen')}</Label>
         <Textarea
           id="notizen"
-          placeholder="Besonderheiten, Probleme, Material..."
+          placeholder=""
           value={fields.notizen ?? ''}
           onChange={e => setFields(f => ({ ...f, notizen: e.target.value }))}
           rows={3}

@@ -49,7 +49,7 @@ export default function PositionErfassenPage() {
   // Schritt 3a: Mechaniker (nur aktiv) — benötigt für Typ "arbeit"
   const mechaniker = useRecordSearch(servicePort, 'mitarbeiter', {
     searchFields: ['vorname', 'nachname'],
-    filter: "r.v_status == 'aktiv'",
+    filter: "r.v_status == 'aktiv'", /* i18n-exempt */
     where: r => fieldLookup(r, 'status')?.key === 'aktiv',
     toItem: m => ({
       id: m.id,

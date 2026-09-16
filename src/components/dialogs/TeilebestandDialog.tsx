@@ -287,7 +287,7 @@ export function TeilebestandDialog({ open, onClose, onSubmit, defaultValues, rec
         <Label htmlFor="artikelnummer">{fieldLabel('teilebestand', 'artikelnummer')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="artikelnummer"
-          placeholder="z. B. OEM-000123"
+          placeholder=""
           value={fields.artikelnummer ?? ''}
           onChange={e => setFields(f => ({ ...f, artikelnummer: e.target.value }))}
           required
@@ -302,7 +302,7 @@ export function TeilebestandDialog({ open, onClose, onSubmit, defaultValues, rec
         <Label htmlFor="bezeichnung">{fieldLabel('teilebestand', 'bezeichnung')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="bezeichnung"
-          placeholder="z. B. Bremsbelag VW Golf"
+          placeholder=""
           value={fields.bezeichnung ?? ''}
           onChange={e => setFields(f => ({ ...f, bezeichnung: e.target.value }))}
           required
@@ -317,7 +317,7 @@ export function TeilebestandDialog({ open, onClose, onSubmit, defaultValues, rec
         <Label htmlFor="hersteller">{fieldLabel('teilebestand', 'hersteller')}</Label>
         <Input
           id="hersteller"
-          placeholder="z. B. BOSCH"
+          placeholder=""
           value={fields.hersteller ?? ''}
           onChange={e => setFields(f => ({ ...f, hersteller: e.target.value }))}
         />
@@ -332,7 +332,7 @@ export function TeilebestandDialog({ open, onClose, onSubmit, defaultValues, rec
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'einkaufspreis')}
-          placeholder="z. B. 25,50"
+          placeholder=""
           value={fields.einkaufspreis !== undefined ? fields.einkaufspreis : (computedValues['einkaufspreis'] ?? '')}
           onChange={e => setFields(f => ({ ...f, einkaufspreis: clampNumberValue(formEnhancements, 'einkaufspreis', e.target.value) }))}
         />
@@ -347,7 +347,7 @@ export function TeilebestandDialog({ open, onClose, onSubmit, defaultValues, rec
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'verkaufspreis')}
-          placeholder="z. B. 38,99"
+          placeholder=""
           value={fields.verkaufspreis !== undefined ? fields.verkaufspreis : (computedValues['verkaufspreis'] ?? '')}
           onChange={e => setFields(f => ({ ...f, verkaufspreis: clampNumberValue(formEnhancements, 'verkaufspreis', e.target.value) }))}
         />
@@ -362,7 +362,7 @@ export function TeilebestandDialog({ open, onClose, onSubmit, defaultValues, rec
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'bestand')}
-          placeholder="z. B. 5"
+          placeholder=""
           value={fields.bestand !== undefined ? fields.bestand : (computedValues['bestand'] ?? '')}
           onChange={e => setFields(f => ({ ...f, bestand: clampNumberValue(formEnhancements, 'bestand', e.target.value) }))}
         />
@@ -377,7 +377,7 @@ export function TeilebestandDialog({ open, onClose, onSubmit, defaultValues, rec
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'mindestbestand')}
-          placeholder="z. B. 2"
+          placeholder=""
           value={fields.mindestbestand !== undefined ? fields.mindestbestand : (computedValues['mindestbestand'] ?? '')}
           onChange={e => setFields(f => ({ ...f, mindestbestand: clampNumberValue(formEnhancements, 'mindestbestand', e.target.value) }))}
         />
@@ -388,7 +388,7 @@ export function TeilebestandDialog({ open, onClose, onSubmit, defaultValues, rec
         <Label htmlFor="lagerplatz">{fieldLabel('teilebestand', 'lagerplatz')}</Label>
         <Input
           id="lagerplatz"
-          placeholder="z. B. Regal A3"
+          placeholder=""
           value={fields.lagerplatz ?? ''}
           onChange={e => setFields(f => ({ ...f, lagerplatz: e.target.value }))}
         />

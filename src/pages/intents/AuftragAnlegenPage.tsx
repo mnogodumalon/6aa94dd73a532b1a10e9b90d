@@ -43,7 +43,7 @@ export default function AuftragAnlegenPage() {
   // Mitarbeiter: nur aktiv + mechaniker oder chef
   const mechaniker = useRecordSearch(servicePort, 'mitarbeiter', {
     searchFields: ['vorname', 'nachname'],
-    filter: "r.v_status == 'aktiv' and (r.v_rolle == 'mechaniker' or r.v_rolle == 'chef')",
+    filter: "r.v_status == 'aktiv' and (r.v_rolle == 'mechaniker' or r.v_rolle == 'chef')", /* i18n-exempt */
     where: r => {
       const status = fieldLookup(r, 'status');
       const rolle = fieldLookup(r, 'rolle');

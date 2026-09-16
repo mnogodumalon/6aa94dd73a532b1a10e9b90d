@@ -43,9 +43,9 @@ export interface IntentLink {
 
 export const INTENTS: IntentLink[] = [
   // <custom:intents>
-  { path: '/intents/auftrag-anlegen', label: { de: 'Auftrag anlegen', en: 'Create order' }, icon: IconClipboardPlus, description: 'Neuen Werkstattauftrag von der Fahrzeugwahl bis zur Auftragsbestätigung anlegen' },
-  { path: '/intents/position-erfassen', label: { de: 'Position erfassen', en: 'Add position' }, icon: IconListCheck, description: 'Arbeitszeit oder verbautes Teil zu einem Auftrag hinzufügen' },
-  { path: '/intents/auftrag-abrechnen', label: { de: 'Auftrag abrechnen', en: 'Invoice order' }, icon: IconReceiptEuro, description: 'Fertigen Auftrag auf Abgerechnet setzen und Rechnung anlegen' },
+  { path: '/intents/auftrag-anlegen', label: { de: 'Auftrag anlegen', en: 'Create order' }, icon: IconClipboardPlus, description: { de: 'Neuen Werkstattauftrag von der Fahrzeugwahl bis zur Auftragsbestätigung anlegen', en: 'Create New Workshop Order from Vehicle Selection to Order Confirmation' } },
+  { path: '/intents/position-erfassen', label: { de: 'Position erfassen', en: 'Add position' }, icon: IconListCheck, description: { de: 'Arbeitszeit oder verbautes Teil zu einem Auftrag hinzufügen', en: 'Add Labor or Installed Part to an Order' } },
+  { path: '/intents/auftrag-abrechnen', label: { de: 'Auftrag abrechnen', en: 'Invoice order' }, icon: IconReceiptEuro, description: { de: 'Fertigen Auftrag auf Abgerechnet setzen und Rechnung anlegen', en: 'Set Completed Order to Invoiced and Create Invoice' } },
   // </custom:intents>
 ];
 
@@ -65,5 +65,5 @@ export const INTENTS_PENDING = false;
  * pulsing "werden erstellt …" in every deployed Phase-1 bundle forever — no
  * code path redeploys Phase 1 without the flag (live 03.09.2026).
  */
-export const INTENTS_PENDING_SINCE: string | null = '2026-09-16T08:44:03+00:00';
+export const INTENTS_PENDING_SINCE: string | null = null;
 export const PENDING_MAX_MINUTES = 30;

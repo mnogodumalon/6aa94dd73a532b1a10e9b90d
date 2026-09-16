@@ -337,7 +337,7 @@ export function FahrzeugeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="kennzeichen">{fieldLabel('fahrzeuge', 'kennzeichen')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="kennzeichen"
-          placeholder="z. B. M-AB-123"
+          placeholder=""
           value={fields.kennzeichen ?? ''}
           onChange={e => setFields(f => ({ ...f, kennzeichen: e.target.value }))}
           required
@@ -352,7 +352,7 @@ export function FahrzeugeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="marke">{fieldLabel('fahrzeuge', 'marke')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="marke"
-          placeholder="z. B. VW"
+          placeholder=""
           value={fields.marke ?? ''}
           onChange={e => setFields(f => ({ ...f, marke: e.target.value }))}
           required
@@ -367,7 +367,7 @@ export function FahrzeugeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="modell">{fieldLabel('fahrzeuge', 'modell')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="modell"
-          placeholder="z. B. Golf"
+          placeholder=""
           value={fields.modell ?? ''}
           onChange={e => setFields(f => ({ ...f, modell: e.target.value }))}
           required
@@ -382,7 +382,7 @@ export function FahrzeugeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="erstzulassung">{fieldLabel('fahrzeuge', 'erstzulassung')}</Label>
         <DatePicker
           id="erstzulassung"
-          placeholder="Erstzulassung wählen"
+          placeholder=""
           mode="date"
           value={fields.erstzulassung ?? null}
           onChange={v => setFields(f => ({ ...f, erstzulassung: v ?? undefined }))}
@@ -398,7 +398,7 @@ export function FahrzeugeDialog({ open, onClose, onSubmit, defaultValues, record
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'kilometerstand')}
-          placeholder="z. B. 125000"
+          placeholder=""
           value={fields.kilometerstand !== undefined ? fields.kilometerstand : (computedValues['kilometerstand'] ?? '')}
           onChange={e => setFields(f => ({ ...f, kilometerstand: clampNumberValue(formEnhancements, 'kilometerstand', e.target.value) }))}
         />
@@ -409,7 +409,7 @@ export function FahrzeugeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="fahrgestellnummer">{fieldLabel('fahrzeuge', 'fahrgestellnummer')}</Label>
         <Input
           id="fahrgestellnummer"
-          placeholder="z. B. WVWZZZ3CZ9E..."
+          placeholder=""
           value={fields.fahrgestellnummer ?? ''}
           onChange={e => setFields(f => ({ ...f, fahrgestellnummer: e.target.value }))}
         />
@@ -420,7 +420,7 @@ export function FahrzeugeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="hu_faellig">{fieldLabel('fahrzeuge', 'hu_faellig')}</Label>
         <DatePicker
           id="hu_faellig"
-          placeholder="Nächste HU-Fälligkeit?"
+          placeholder=""
           mode="date"
           value={fields.hu_faellig ?? null}
           onChange={v => setFields(f => ({ ...f, hu_faellig: v ?? undefined }))}
@@ -432,7 +432,7 @@ export function FahrzeugeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="halter">{fieldLabel('fahrzeuge', 'halter')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Combobox
           id="halter"
-          placeholder="Welcher Kunde?"
+          placeholder=""
           items={kundenListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.vorname ?? r.record_id),

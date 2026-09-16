@@ -53,7 +53,7 @@ export default function AuftragAbrechnungPage() {
   const [nettobetragVorschlag, setNettobetragVorschlag] = useState<number | null>(null);
 
   const auftraege = useRecordSearch(servicePort, 'auftraege', {
-    filter: "r.v_status == 'fertig'",
+    filter: "r.v_status == 'fertig'", /* i18n-exempt */
     where: r => fieldLookup(r, 'status')?.key === 'fertig',
     searchFields: ['auftragsnummer'],
     toItem: a => ({

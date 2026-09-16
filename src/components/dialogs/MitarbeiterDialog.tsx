@@ -313,7 +313,7 @@ export function MitarbeiterDialog({ open, onClose, onSubmit, defaultValues, reco
           id="email"
           type="email"
           inputMode="email"
-          placeholder="z. B. john@werkstatt.local"
+          placeholder=""
           value={fields.email ?? ''}
           onChange={e => setFields(f => ({ ...f, email: e.target.value }))}
         />
@@ -324,7 +324,7 @@ export function MitarbeiterDialog({ open, onClose, onSubmit, defaultValues, reco
         <Label htmlFor="vorname">{fieldLabel('mitarbeiter', 'vorname')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="vorname"
-          placeholder="z. B. John"
+          placeholder=""
           value={fields.vorname ?? ''}
           onChange={e => setFields(f => ({ ...f, vorname: e.target.value }))}
           required
@@ -339,7 +339,7 @@ export function MitarbeiterDialog({ open, onClose, onSubmit, defaultValues, reco
         <Label htmlFor="nachname">{fieldLabel('mitarbeiter', 'nachname')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="nachname"
-          placeholder="z. B. Schmidt"
+          placeholder=""
           value={fields.nachname ?? ''}
           onChange={e => setFields(f => ({ ...f, nachname: e.target.value }))}
           required
@@ -407,7 +407,7 @@ export function MitarbeiterDialog({ open, onClose, onSubmit, defaultValues, reco
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'stundensatz')}
-          placeholder="z. B. 45"
+          placeholder=""
           value={fields.stundensatz !== undefined ? fields.stundensatz : (computedValues['stundensatz'] ?? '')}
           onChange={e => setFields(f => ({ ...f, stundensatz: clampNumberValue(formEnhancements, 'stundensatz', e.target.value) }))}
         />
