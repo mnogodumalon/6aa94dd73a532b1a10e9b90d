@@ -1,0 +1,75 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "kundentyp": "Privat oder Gewerbe?",
+    "telefon": "z. B. 089 / 12345678",
+    "email": "z. B. max@example.com",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 80123",
+    "ort": "z. B. München",
+    "notizen": "Besonderheiten, Zahlungsbedingungen..."
+  },
+  "MitarbeiterDialog.tsx": {
+    "vorname": "z. B. John",
+    "nachname": "z. B. Schmidt",
+    "email": "z. B. john@werkstatt.local",
+    "rolle": "Rolle des Mitarbeiters?",
+    "stundensatz": "z. B. 45",
+    "status": "Aktueller Status?"
+  },
+  "TeilebestandDialog.tsx": {
+    "artikelnummer": "z. B. OEM-000123",
+    "bezeichnung": "z. B. Bremsbelag VW Golf",
+    "hersteller": "z. B. BOSCH",
+    "einkaufspreis": "z. B. 25,50",
+    "verkaufspreis": "z. B. 38,99",
+    "bestand": "z. B. 5",
+    "mindestbestand": "z. B. 2",
+    "lagerplatz": "z. B. Regal A3"
+  },
+  "FahrzeugeDialog.tsx": {
+    "kennzeichen": "z. B. M-AB-123",
+    "marke": "z. B. VW",
+    "modell": "z. B. Golf",
+    "erstzulassung": "Erstzulassung wählen",
+    "kilometerstand": "z. B. 125000",
+    "fahrgestellnummer": "z. B. WVWZZZ3CZ9E...",
+    "hu_faellig": "Nächste HU-Fälligkeit?",
+    "halter": "Welcher Kunde?"
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-001",
+    "fahrzeug": "Welches Fahrzeug?",
+    "annahmedatum": "Wann angenommen?",
+    "fertigstellungstermin": "Wann fertig?",
+    "kundenwunsch": "Was soll gemacht werden? Beschreibung, Symptome...",
+    "status": "Aktueller Auftragsstatus?",
+    "mechaniker": "Welcher Mechaniker?",
+    "kilometerstand_annahme": "z. B. 125050",
+    "notizen": "Besonderheiten, Probleme, Material..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Zu welchem Auftrag?",
+    "positionstyp": "Arbeit oder Teil?",
+    "bezeichnung": "z. B. Bremsbelag wechseln",
+    "menge": "z. B. 1",
+    "einzelpreis": "z. B. 45,00",
+    "mechaniker": "Zuständiger Mechaniker?",
+    "dauer_stunden": "z. B. 1,5",
+    "teil": "Welches Teil verwenden?"
+  },
+  "RechnungenDialog.tsx": {
+    "rechnungsnummer": "z. B. RG-2026-0001",
+    "auftrag": "Zu welchem Auftrag?",
+    "kunde": "Welcher Kunde?",
+    "rechnungsdatum": "Ausstellungsdatum?",
+    "faelligkeit": "Zahlungsfrist (Standard: 14 Tage)?",
+    "nettobetrag": "z. B. 1234,56",
+    "mwst": "Wird automatisch berechnet",
+    "bruttobetrag": "Wird automatisch berechnet",
+    "status": "Bezahlt oder offen?",
+    "zahlungseingang": "Wann bezahlt?"
+  }
+}

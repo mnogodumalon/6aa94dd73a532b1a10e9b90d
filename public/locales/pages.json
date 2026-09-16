@@ -1,0 +1,40 @@
+{
+  "pages": {
+    "en": {
+      " — Fertigstellungstermin überschritten.": " — Completion deadline passed.",
+      " — Termin überschritten, sofort bearbeiten.": " — Appointment overdue, handle immediately.",
+      "Alle Aufträge im grünen Bereich.": "All orders on track.",
+      "Alle Aufträge pünktlich — super!": "All orders on time — great!",
+      "Als abgeholt markieren": "Mark as Collected",
+      "Als abgerechnet markieren": "Mark as Invoiced",
+      "Als fertig markieren": "Mark as Done",
+      "Bezahlt": "Paid",
+      "Ersten Auftrag anlegen": "Create First Order",
+      "Fertig": "Done",
+      "Fertig & wartet": "Done & Waiting",
+      "Heute fällig": "Due today",
+      "Heute fällig & überfällig": "Due today & overdue",
+      "In Arbeit": "In Progress",
+      "In Arbeit setzen": "Set to In Progress",
+      "Kein Fälligkeitsdatum": "No due date",
+      "Keine offenen Rechnungen — alle beglichen.": "No open invoices — all settled.",
+      "Lege deinen ersten Auftrag an und starte die Arbeit.": "Create your first order and get started.",
+      "Mechaniker aktiv": "Mechanics active",
+      "Neuer Auftrag": "New Order",
+      "Nimm deinen ersten Auftrag an, um loszulegen.": "Accept your first order to get started.",
+      "Noch keine Aufträge": "No orders yet",
+      "Offen & In Arbeit": "Open & In Progress",
+      "Offene Rechnungen": "Open Invoices",
+      "Teil erfassen": "Log Part",
+      "Weiterschalten": "Advance",
+      "offene Rechnungen": "open invoices",
+      "{0} Teile unter Mindestbestand": "{0} parts below minimum stock",
+      "{0} wartet auf Abholung": "{0} waiting for collection",
+      "{0} — Status aktualisiert": "{0} — Status updated",
+      "{0} — als bezahlt markiert": "{0} — marked as paid",
+      "Überfällig": "Overdue",
+      "überfällige Aufträge": "overdue orders"
+    }
+  },
+  "v": 1
+}

@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Namen, Adresse, Kontakt) — keine Numerikfelder, keine Lookup-Ketten, nichts berechenbar"
+    },
+    "Mitarbeiter": {
+      "placeholders_set": 6,
+      "defaults_keys": ["rolle", "status"],
+      "computed_keys": [],
+      "reason": "Stammdaten mit Stundensatz-Einzelwert (kein Kontext-Multiplikator). Rolle + Status mit offensichtlichen Defaults"
+    },
+    "Teilebestand": {
+      "placeholders_set": 8,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Lager-Stammdaten (Preis, Menge, Lagerplatz) — keine Abhängigkeiten, keine Berechnungen im Form-Kontext"
+    },
+    "Fahrzeuge": {
+      "placeholders_set": 8,
+      "defaults_keys": ["hu_faellig"],
+      "computed_keys": [],
+      "reason": "Fahrzeugbestand mit Kunde-Applookup. HU-Fälligkeit auf +365 Tage vorbelegung; kein computed (Überprüfung ist Dashboard-Logic)"
+    },
+    "Aufträge": {
+      "placeholders_set": 9,
+      "defaults_keys": ["annahmedatum", "fertigstellungstermin", "status"],
+      "computed_keys": [],
+      "reason": "Auftrags-Header (Fahrzeug, Mechaniker, Daten). Arbeitskosten-Berechnung gehört zu Auftragspositionen, nicht hier"
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 8,
+      "defaults_keys": ["positionstyp", "menge"],
+      "computed_keys": ["_arbeitskosten", "_teilkosten", "gesamtpreis"],
+      "reason": "Zentrale Positions-Abrechnung: Conditional auf Typ (Arbeit vs. Teil) mit Stundensatz×Stunden bzw. Verkaufspreis×Menge. Gesamtpreis-Formel (MODUS 2) wählt den richtigen Multiplikator basierend auf Positionstyp"
+    },
+    "Rechnungen": {
+      "placeholders_set": 9,
+      "defaults_keys": ["rechnungsdatum", "faelligkeit", "status"],
+      "computed_keys": ["mwst", "bruttobetrag"],
+      "reason": "Netto-MwSt-Brutto-Rechnungsaggregation. Beide Computeds sind Standard-Multiplikationen (Netto × 0.19 und × 1.19)"
+    }
+  }
+}
