@@ -70,14 +70,14 @@ createRecordUrl from the service. Note the lowercase `l` in the service path.
   ✚ EnrichedFahrzeuge adds ONLY halterName — via enrichFahrzeuge(fahrzeuge, { kundenMap }), all maps required
   → halter links to app_id 6aa94da65297da904085d71c
 - Aufträge (auftraege): auftragsnummer!^[string/text], fahrzeug!^[applookup/select], annahmedatum!^[date/date], fertigstellungstermin^[date/date] "Zugesagter Fertigstellungstermin", kundenwunsch^[string/textarea], status![lookup/select: angenommen|in_arbeit|fertig|abgerechnet|abgeholt], mechaniker[applookup/select] "Zuständiger Mechaniker", kilometerstand_annahme[number] "Kilometerstand bei Annahme (km)", notizen[string/textarea]
-  ≡ 4 records at build time
+  ≡ 6 records at build time
   ◈ status → choice (5 options, ChoiceGroup) · fahrzeug → record (fahrzeuge, EntitySelectStep) · mechaniker → record (mitarbeiter, EntitySelectStep)
   ⚙ getAuftraege() · getAuftraegeEntry(id) · createAuftraegeEntry(fields) · updateAuftraegeEntry(id, fields) · deleteAuftraegeEntry(id) · queryAuftraege({ filter, orderby, limit, offset, fields }) · countAuftraege(filter?)
   ✚ EnrichedAuftraege adds ONLY fahrzeugName, mechanikerName — via enrichAuftraege(auftraege, { fahrzeugeMap, mitarbeiterMap }), all maps required
   → fahrzeug links to app_id 6aa94daf5902b993cd4338de
   → mechaniker links to app_id 6aa94dad44457dfc3ca4921c
 - Auftragspositionen (auftragspositionen): auftrag!^[applookup/select], positionstyp!^[lookup/radio: arbeit|teil], bezeichnung!^[string/text], menge!^[number], einzelpreis!^[number], mechaniker[applookup/select], dauer_stunden[number], teil[applookup/select] "Verwendetes Teil"
-  ≡ 4 records at build time
+  ≡ 5 records at build time
   ◈ positionstyp → choice (2 options, ChoiceGroup) · auftrag → record (auftraege, EntitySelectStep) · mechaniker → record (mitarbeiter, EntitySelectStep) · teil → record (teilebestand, EntitySelectStep)
   ⚙ getAuftragspositionen() · getAuftragspositionenEntry(id) · createAuftragspositionenEntry(fields) · updateAuftragspositionenEntry(id, fields) · deleteAuftragspositionenEntry(id) · queryAuftragspositionen({ filter, orderby, limit, offset, fields }) · countAuftragspositionen(filter?)
   ✚ EnrichedAuftragspositionen adds ONLY auftragName, mechanikerName, teilName — via enrichAuftragspositionen(auftragspositionen, { auftraegeMap, mitarbeiterMap, teilebestandMap }), all maps required
@@ -85,7 +85,7 @@ createRecordUrl from the service. Note the lowercase `l` in the service path.
   → mechaniker links to app_id 6aa94dad44457dfc3ca4921c
   → teil links to app_id 6aa94dae08a22adc1b6489f1
 - Rechnungen (rechnungen): rechnungsnummer!^[string/text], auftrag!^[applookup/select], kunde!^[applookup/select], rechnungsdatum!^[date/date], faelligkeit^[date/date], nettobetrag[number], mwst[number], bruttobetrag[number], status![lookup/radio: offen|bezahlt|storniert], zahlungseingang[date/date], pdf[file] "Rechnungs-PDF"
-  ≡ 2 records at build time
+  ≡ 3 records at build time
   ◈ status → choice (3 options, ChoiceGroup) · auftrag → record (auftraege, EntitySelectStep) · kunde → record (kunden, EntitySelectStep)
   ⚙ getRechnungen() · getRechnungenEntry(id) · createRechnungenEntry(fields) · updateRechnungenEntry(id, fields) · deleteRechnungenEntry(id) · queryRechnungen({ filter, orderby, limit, offset, fields }) · countRechnungen(filter?)
   ✚ EnrichedRechnungen adds ONLY auftragName, kundeName — via enrichRechnungen(rechnungen, { auftraegeMap, kundenMap }), all maps required

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "slug": "reparaturanfrage",
+      "component": "Reparaturanfrage",
+      "title": "Reparaturanfrage",
+      "endpoints": [
+        {
+          "entity": "auftraege",
+          "op": "list",
+          "fields": [
+            "auftragsnummer"
+          ],
+          "scope_description": "Alle Aufträge – wird nur zur Auftragsnummer-Generierung geladen (Zähler)"
+        },
+        {
+          "entity": "kunden",
+          "op": "create",
+          "fields": [
+            "vorname",
+            "nachname",
+            "kundentyp",
+            "telefon",
+            "email"
+          ]
+        },
+        {
+          "entity": "fahrzeuge",
+          "op": "create",
+          "fields": [
+            "kennzeichen",
+            "marke",
+            "modell",
+            "kilometerstand",
+            "hu_faellig",
+            "halter"
+          ]
+        },
+        {
+          "entity": "auftraege",
+          "op": "create",
+          "fields": [
+            "auftragsnummer",
+            "fahrzeug",
+            "annahmedatum",
+            "kundenwunsch",
+            "fertigstellungstermin"
+          ],
+          "preset_fields": {
+            "status": "angenommen"
+          }
+        }
+      ]
+    }
+  ]
+}
