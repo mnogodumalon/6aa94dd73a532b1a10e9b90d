@@ -52,7 +52,7 @@ There is NO `@/config/appIds`, no `@/config/lookupOptions` and no
 createRecordUrl from the service. Note the lowercase `l` in the service path.
 
 - Kunden (kunden): vorname!^[string/text], nachname!^[string/text], kundentyp!^[lookup/radio: privat|gewerbe], telefon^[string/tel], email^[string/email] "E-Mail", strasse[string/text], hausnummer[string/text], plz[string/text] "Postleitzahl", ort[string/text], notizen[string/textarea]
-  ≡ 3 records at build time
+  ≡ 4 records at build time
   ◈ kundentyp → choice (2 options, ChoiceGroup)
   ⚙ getKunden() · getKundenEntry(id) · createKundenEntry(fields) · updateKundenEntry(id, fields) · deleteKundenEntry(id) · queryKunden({ filter, orderby, limit, offset, fields }) · countKunden(filter?)
 - Mitarbeiter (mitarbeiter): email[string/email] "E-Mail", vorname!^[string/text], nachname!^[string/text], rolle!^[lookup/radio: annahme|mechaniker|chef], stundensatz^[number], status!^[lookup/radio: aktiv|krank|urlaub]
@@ -64,13 +64,13 @@ createRecordUrl from the service. Note the lowercase `l` in the service path.
   ◈ bestand → stock (show it, warn on overshoot)
   ⚙ getTeilebestand() · getTeilebestandEntry(id) · createTeilebestandEntry(fields) · updateTeilebestandEntry(id, fields) · deleteTeilebestandEntry(id) · queryTeilebestand({ filter, orderby, limit, offset, fields }) · countTeilebestand(filter?)
 - Fahrzeuge (fahrzeuge): kennzeichen!^[string/text], marke!^[string/text], modell!^[string/text], erstzulassung^[date/date], kilometerstand^[number] "Kilometerstand (km)", fahrgestellnummer[string/text], hu_faellig[date/date], halter![applookup/select] "Halter (Kunde)"
-  ≡ 3 records at build time
+  ≡ 4 records at build time
   ◈ halter → record (kunden, EntitySelectStep)
   ⚙ getFahrzeuge() · getFahrzeugeEntry(id) · createFahrzeugeEntry(fields) · updateFahrzeugeEntry(id, fields) · deleteFahrzeugeEntry(id) · queryFahrzeuge({ filter, orderby, limit, offset, fields }) · countFahrzeuge(filter?)
   ✚ EnrichedFahrzeuge adds ONLY halterName — via enrichFahrzeuge(fahrzeuge, { kundenMap }), all maps required
   → halter links to app_id 6aa94da65297da904085d71c
 - Aufträge (auftraege): auftragsnummer!^[string/text], fahrzeug!^[applookup/select], annahmedatum!^[date/date], fertigstellungstermin^[date/date] "Zugesagter Fertigstellungstermin", kundenwunsch^[string/textarea], status![lookup/select: angenommen|in_arbeit|fertig|abgerechnet|abgeholt], mechaniker[applookup/select] "Zuständiger Mechaniker", kilometerstand_annahme[number] "Kilometerstand bei Annahme (km)", notizen[string/textarea]
-  ≡ 6 records at build time
+  ≡ 7 records at build time
   ◈ status → choice (5 options, ChoiceGroup) · fahrzeug → record (fahrzeuge, EntitySelectStep) · mechaniker → record (mitarbeiter, EntitySelectStep)
   ⚙ getAuftraege() · getAuftraegeEntry(id) · createAuftraegeEntry(fields) · updateAuftraegeEntry(id, fields) · deleteAuftraegeEntry(id) · queryAuftraege({ filter, orderby, limit, offset, fields }) · countAuftraege(filter?)
   ✚ EnrichedAuftraege adds ONLY fahrzeugName, mechanikerName — via enrichAuftraege(auftraege, { fahrzeugeMap, mitarbeiterMap }), all maps required
