@@ -41,6 +41,13 @@ export type MessageFieldKey<E extends EntityKey> = E extends keyof MessageFields
 
 export const REQUIRED_MESSAGES: { [E in EntityKey]?: Partial<Record<MessageFieldKey<E>, string>> } = {
   // <custom:messages>
+  kunden: { vorname: "Bitte den Vornamen eingeben.", nachname: "Bitte den Nachnamen eingeben.", kundentyp: "Bitte Privat oder Gewerbe wählen." },
+  mitarbeiter: { vorname: "Bitte den Vornamen eingeben.", nachname: "Bitte den Nachnamen eingeben.", rolle: "Bitte eine Rolle wählen.", status: "Bitte den Status des Mitarbeiters wählen." },
+  teilebestand: { artikelnummer: "Bitte die Artikelnummer eingeben.", bezeichnung: "Bitte die Bezeichnung eingeben." },
+  fahrzeuge: { kennzeichen: "Bitte das Kennzeichen eingeben.", marke: "Bitte die Marke eingeben.", modell: "Bitte das Modell eingeben.", halter: "Bitte den Kunden als Halter wählen." },
+  auftraege: { auftragsnummer: "Bitte die Auftragsnummer eingeben.", fahrzeug: "Bitte das Fahrzeug wählen.", annahmedatum: "Bitte das Annahmedatum wählen.", status: "Bitte den Auftragsstatus wählen." },
+  auftragspositionen: { auftrag: "Bitte den zugehörigen Auftrag wählen.", positionstyp: "Bitte Arbeit oder Teil wählen.", bezeichnung: "Bitte die Bezeichnung eingeben.", menge: "Bitte die Menge angeben.", einzelpreis: "Bitte den Einzelpreis angeben." },
+  rechnungen: { rechnungsnummer: "Bitte die Rechnungsnummer eingeben.", auftrag: "Bitte den Auftrag wählen.", kunde: "Bitte den Kunden wählen.", rechnungsdatum: "Bitte das Rechnungsdatum wählen.", status: "Bitte den Rechnungsstatus wählen." },
   // </custom:messages>
 };
 
