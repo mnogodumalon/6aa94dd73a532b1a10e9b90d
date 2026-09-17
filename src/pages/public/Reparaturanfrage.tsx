@@ -163,6 +163,9 @@ export default function Reparaturanfrage() {
             <Bound form={kunde} name="nachname" />
             <Bound form={kunde} name="telefon" />
             <Bound form={kunde} name="email" />
+            <p className="text-sm text-muted-foreground">
+              {tx('Unsere Werkstattzeiten: Montag bis Freitag, 8:00 – 17:00 Uhr. Bitte beachte, dass Reparaturanfragen ausserhalb dieser Zeiten am nächsten Werktag bearbeitet werden.')}
+            </p>
             <StepNav
               hideBack
               onNext={() => {
