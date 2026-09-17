@@ -1387,7 +1387,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
         "lookups": {
           "kundentyp": {
             "privat": "Private",
-            "gewerbe": "Business"
+            "gewerbe": "Commercial"
           }
         }
       },
@@ -1419,7 +1419,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
         "name": "Parts Inventory",
         "app_id": "6aa94dae08a22adc1b6489f1",
         "fields": {
-          "artikelnummer": "Article Number",
+          "artikelnummer": "Part Number",
           "bezeichnung": "Description",
           "hersteller": "Manufacturer",
           "einkaufspreis": "Purchase Price (€)",
