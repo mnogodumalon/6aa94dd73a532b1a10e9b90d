@@ -341,6 +341,7 @@ export const UI_CATALOG: Record<CoreLocale, Record<string, string>> = {
     "ppa_can_view": "diese Daten sehen",
     "ppa_cannot_line": "bestehende Daten sehen oder ändern.",
     "ppa_cannot_change_line": "bestehende Daten ändern oder löschen.",
+    "ppa_link_param_note": "Der Link pro Eintrag zeigt Besuchern nur diesen einen Eintrag. Technisch lesbar sind über die Seite trotzdem alle Einträge der aufgeführten Listen — ein Scope in der Liste begrenzt das.",
     "ppa_cancel": "Abbrechen",
     "ppa_confirm_publish": "Veröffentlichen",
     "ps_preview_banner": "Vorschau — nur du siehst diese Seite. Absenden legt einen echten Eintrag an.",
@@ -910,6 +911,7 @@ export const UI_CATALOG: Record<CoreLocale, Record<string, string>> = {
     "ppa_can_view": "see this data",
     "ppa_cannot_line": "see or change existing data.",
     "ppa_cannot_change_line": "change or delete existing data.",
+    "ppa_link_param_note": "A per-record link shows a visitor just that one record. Technically the page can still read every record of the lists above — a scope on the list narrows that.",
     "ppa_cancel": "Cancel",
     "ppa_confirm_publish": "Publish",
     "ps_preview_banner": "Preview — only you can see this page. Submitting creates a real record.",
@@ -1417,13 +1419,13 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
         "name": "Parts Inventory",
         "app_id": "6aa94dae08a22adc1b6489f1",
         "fields": {
-          "artikelnummer": "Article Number",
+          "artikelnummer": "Part Number",
           "bezeichnung": "Description",
           "hersteller": "Manufacturer",
           "einkaufspreis": "Purchase Price (€)",
           "verkaufspreis": "Selling Price (€)",
-          "bestand": "Stock (pcs)",
-          "mindestbestand": "Minimum Stock (pcs)",
+          "bestand": "Stock (Units)",
+          "mindestbestand": "Minimum Stock (Units)",
           "lagerplatz": "Storage Location"
         },
         "lookups": {}
@@ -1438,7 +1440,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
           "erstzulassung": "First Registration",
           "kilometerstand": "Mileage (km)",
           "fahrgestellnummer": "VIN",
-          "hu_faellig": "Inspection Due",
+          "hu_faellig": "Next Inspection Due",
           "halter": "Owner (Customer)"
         },
         "lookups": {}
