@@ -2,14 +2,6 @@
   "version": 1,
   "pages": [
     {
-      "slug": "auftragsstatus",
-      "type": "custom",
-      "entity": "auftraege",
-      "title": "Auftragsstatus",
-      "published": true,
-      "fields": []
-    },
-    {
       "slug": "reparaturanfrage",
       "type": "custom",
       "entity": "fahrzeuge",
