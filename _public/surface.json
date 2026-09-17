@@ -52,38 +52,6 @@
           }
         }
       ]
-    },
-    {
-      "slug": "auftragsstatus",
-      "component": "Auftragsstatus",
-      "title": "Auftragsstatus",
-      "link_param": {
-        "name": "auftraege",
-        "entity": "auftraege",
-        "label_field": "auftragsnummer",
-        "secondary_field": "status"
-      },
-      "endpoints": [
-        {
-          "entity": "auftraege",
-          "op": "list",
-          "fields": [
-            "auftragsnummer",
-            "status",
-            "fertigstellungstermin",
-            "fahrzeug"
-          ],
-          "scope_description": "Zeigt alle Aufträge — gefiltert wird client-seitig anhand des Link-Parameters"
-        },
-        {
-          "entity": "fahrzeuge",
-          "op": "list",
-          "fields": [
-            "kennzeichen"
-          ],
-          "scope_description": "Zeigt alle Fahrzeuge — das Kennzeichen wird dem verknüpften Auftrag zugeordnet"
-        }
-      ]
     }
   ]
 }
