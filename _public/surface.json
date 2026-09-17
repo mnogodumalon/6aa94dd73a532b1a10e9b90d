@@ -1,4 +1,51 @@
 {
   "version": 1,
-  "pages": []
+  "pages": [
+    {
+      "slug": "reparaturanfrage",
+      "component": "Reparaturanfrage",
+      "title": "Reparaturanfrage",
+      "endpoints": [
+        {
+          "entity": "kunden",
+          "op": "create",
+          "fields": [
+            "vorname",
+            "nachname",
+            "telefon",
+            "email"
+          ],
+          "preset_fields": {
+            "kundentyp": "privat"
+          }
+        },
+        {
+          "entity": "fahrzeuge",
+          "op": "create",
+          "fields": [
+            "kennzeichen",
+            "marke",
+            "modell",
+            "kilometerstand",
+            "hu_faellig",
+            "halter"
+          ]
+        },
+        {
+          "entity": "auftraege",
+          "op": "create",
+          "fields": [
+            "auftragsnummer",
+            "kundenwunsch",
+            "fertigstellungstermin",
+            "fahrzeug",
+            "annahmedatum"
+          ],
+          "preset_fields": {
+            "status": "angenommen"
+          }
+        }
+      ]
+    }
+  ]
 }
