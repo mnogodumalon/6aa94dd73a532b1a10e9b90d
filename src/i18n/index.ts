@@ -1419,7 +1419,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
         "name": "Parts Inventory",
         "app_id": "6aa94dae08a22adc1b6489f1",
         "fields": {
-          "artikelnummer": "Part Number",
+          "artikelnummer": "Article Number",
           "bezeichnung": "Description",
           "hersteller": "Manufacturer",
           "einkaufspreis": "Purchase Price (€)",
