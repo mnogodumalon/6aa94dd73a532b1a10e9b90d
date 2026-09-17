@@ -1411,7 +1411,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
           "status": {
             "aktiv": "Active",
             "krank": "Sick",
-            "urlaub": "Vacation"
+            "urlaub": "On Leave"
           }
         }
       },
@@ -1419,7 +1419,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
         "name": "Parts Inventory",
         "app_id": "6aa94dae08a22adc1b6489f1",
         "fields": {
-          "artikelnummer": "Part Number",
+          "artikelnummer": "Article Number",
           "bezeichnung": "Description",
           "hersteller": "Manufacturer",
           "einkaufspreis": "Purchase Price (€)",
@@ -1440,7 +1440,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
           "erstzulassung": "First Registration",
           "kilometerstand": "Mileage (km)",
           "fahrgestellnummer": "VIN",
-          "hu_faellig": "Inspection Due",
+          "hu_faellig": "Next Inspection Due",
           "halter": "Owner (Customer)"
         },
         "lookups": {}
