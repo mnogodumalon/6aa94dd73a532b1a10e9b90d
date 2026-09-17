@@ -335,6 +335,7 @@ function installDom(slug, onJsdomError) {
     if (d && ('value' in d || d.get)) mirror(k);
   }
   for (const k of ['localStorage', 'sessionStorage', 'location', 'history', 'getComputedStyle', 'requestAnimationFrame', 'cancelAnimationFrame']) mirror(k);
+  for (const k of ['addEventListener', 'removeEventListener', 'dispatchEvent']) define(k, win[k].bind(win));
   // Media queries: the DatePicker asks for '(pointer: coarse)' and renders a
   // native <input type="date"> when it matches — the branch a script can fill.
   const mm = (q) => ({ matches: /pointer:\s*coarse/.test(q), media: q, onchange: null, addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {}, dispatchEvent() { return false; } });
