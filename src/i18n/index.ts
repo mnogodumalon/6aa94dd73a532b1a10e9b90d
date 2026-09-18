@@ -1489,7 +1489,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
           "status": {
             "aktiv": "Active",
             "krank": "Sick",
-            "urlaub": "Vacation"
+            "urlaub": "On Leave"
           }
         }
       },

@@ -1044,8 +1044,8 @@ import PublicPagesAdmin from '@/pages/PublicPagesAdmin';
 import PublicPageFields from '@/pages/PublicPageFields';
 import IntentsAdmin from '@/pages/IntentsAdmin';
 // <custom:imports>
-const IntentAuftragAnlegenPage = lazy(() => import('@/pages/intents/AuftragAnlegenPage'));
 import { DashboardSkeleton } from '@/components/DashboardStates';
+const IntentAuftragAnlegenPage = lazy(() => import('@/pages/intents/AuftragAnlegenPage'));
 const IntentPositionErfassenPage = lazy(() => import('@/pages/intents/PositionErfassenPage'));
 const IntentAuftragAbrechnungPage = lazy(() => import('@/pages/intents/AuftragAbrechnungPage'));
 // </custom:imports>
