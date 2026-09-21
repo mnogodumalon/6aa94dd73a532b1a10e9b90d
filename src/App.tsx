@@ -13,6 +13,10 @@ import IntentFields from '@/pages/IntentFields';
 import { IntentPolicyLoader } from '@/components/IntentPolicyLoader';
 import IntentsAdmin from '@/pages/IntentsAdmin';
 // <custom:imports>
+const IntentAuftragAnnehmenPage = lazy(() => import('@/pages/intents/AuftragAnnehmenPage'));
+import { DashboardSkeleton } from '@/components/DashboardStates';
+const IntentPositionErfassenPage = lazy(() => import('@/pages/intents/PositionErfassenPage'));
+const IntentRechnungErstellenPage = lazy(() => import('@/pages/intents/RechnungErstellenPage'));
 // </custom:imports>
 
 // Lazy: public pages live outside <Layout> and only load on /#/public/:slug —
@@ -83,6 +87,9 @@ export default function App() {
                 <Route path="verwaltung/oeffentliche-seiten" element={<PublicPagesAdmin />} />
                 <Route path="verwaltung/oeffentliche-seiten/:slug/felder" element={<PublicPageFields />} />
                 {/* <custom:routes> */}
+                <Route path="intents/auftrag-annehmen" element={<Suspense fallback={<DashboardSkeleton />}><IntentAuftragAnnehmenPage /></Suspense>} />
+                <Route path="intents/position-erfassen" element={<Suspense fallback={<DashboardSkeleton />}><IntentPositionErfassenPage /></Suspense>} />
+                <Route path="intents/rechnung-erstellen" element={<Suspense fallback={<DashboardSkeleton />}><IntentRechnungErstellenPage /></Suspense>} />
                 {/* </custom:routes> */}
                 {/* An unknown hash (a bookmark from before a rebuild renamed the
                     flows, a mistyped link) must not be a blank page. */}
