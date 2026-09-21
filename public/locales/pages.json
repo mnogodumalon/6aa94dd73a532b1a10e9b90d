@@ -1,0 +1,37 @@
+{
+  "pages": {
+    "en": {
+      "Aktiv": "Active",
+      "Alle Rechnungen beglichen.": "All invoices settled.",
+      "Alle Teile ausreichend bevorratet.": "All parts sufficiently stocked.",
+      "Auftrag": "Order",
+      "Bestellen": "Order",
+      "Bezahlt": "Paid",
+      "Fahrzeug aufrufen": "Open vehicle",
+      "Fertig / offen": "Done / open",
+      "HU abgelaufen: {0} ({1})": "Main inspection expired: {0} ({1})",
+      "Keine offenen Rechnungen.": "No open invoices.",
+      "Nachbestellen": "Reorder",
+      "Neuer Auftrag": "New order",
+      "Nicht verfügbar": "Unavailable",
+      "Noch keine Aufträge heute — bereit für den nächsten Kunden.": "No orders yet today — ready for the next customer.",
+      "Offene Rechnungen": "Open invoices",
+      "Rechnung": "Invoice",
+      "Rechnung erstellen": "Create invoice",
+      "Teil aufnehmen": "Add part",
+      "Teile nachbestellen": "Reorder parts",
+      "Unbekanntes Teil": "Unknown part",
+      "bis {0}": "until {0}",
+      "fällig": "due",
+      "{0} / {1} Stk.": "{0} / {1} pcs.",
+      "{0} Aufträge fertig und noch nicht abgerechnet.": "{0} orders completed and not yet billed.",
+      "{0} Aufträge in Bearbeitung — alles im Plan.": "{0} orders in progress — everything on track.",
+      "{0} Fahrzeuge mit abgelaufener HU — sofort prüfen.": "{0} vehicles with expired main inspection — check immediately.",
+      "{0} ist fertig — Rechnung ausstehend.": "{0} is done — invoice pending.",
+      "{0} warten auf Abrechnung.": "{0} are waiting for billing.",
+      "{0} wartet auf Abrechnung.": "{0} is waiting for billing.",
+      "{0} — als bezahlt markiert": "{0} — marked as paid"
+    }
+  },
+  "v": 1
+}

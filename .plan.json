@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "language": "de",
+  "understanding": {
+    "summary": "Auto Brandl ist eine freie Kfz-Werkstatt in Bamberg. Die Anwendung begleitet jeden Auftrag von der Fahrzeugannahme über die Werkstattarbeit bis zur Rechnung. Kunden und Fahrzeuge werden gepflegt, Aufträge mit Positionen (Arbeitszeit und Teile) erfasst, Rechnungen gestellt und der Teilebestand automatisch fortgeschrieben.",
+    "roles": [
+      "Annahme (Büro): legt Kunden, Fahrzeuge und Aufträge an, stellt Rechnungen",
+      "Mechaniker: sieht eigene Aufträge, trägt Positionen (Zeit und Teile) ein, setzt Status auf Fertig",
+      "Chef: Vollzugriff, pflegt Teilepreise und Stundensätze"
+    ],
+    "main_tasks": [
+      "Neuen Auftrag anlegen (Fahrzeug und Kunde auswählen, Mechaniker zuweisen)",
+      "Auftragspositionen erfassen (Arbeitszeit oder verbautes Teil aus Bestand)",
+      "Rechnung zu einem fertigen Auftrag erstellen"
+    ]
+  },
+  "flows": [
+    {
+      "slug": "auftrag-anlegen",
+      "label": {
+        "de": "Auftrag anlegen",
+        "en": "Create order"
+      },
+      "description": "Annahme wählt ein vorhandenes Fahrzeug (und damit den Kunden), weist einen Mechaniker zu und erfasst alle Auftragsdaten. Das System setzt Status auf 'angenommen' und vergibt die Auftragsnummer automatisch.",
+      "priority": "must",
+      "writes": [
+        {
+          "entity": "auftraege",
+          "op": "create",
+          "when": "always",
+          "fields": {
+            "fahrzeug": "picked",
+            "mechaniker": "picked",
+            "annahmedatum": "derived:today",
+            "fertigstellungstermin": "user",
+            "kilometerstand_annahme": "user",
+            "kundenwunsch": "user",
+            "notizen": "user",
+            "status": "fixed:angenommen"
+          }
+        }
+      ],
+      "brief": "# Flow `auftrag-anlegen` — Auftrag anlegen\nAnnahme wählt ein vorhandenes Fahrzeug (und damit den Kunden), weist einen Mechaniker zu und erfasst alle Auftragsdaten. Das System setzt Status auf 'angenommen' und vergibt die Auftragsnummer automatisch.\n\n## Steps (in this order)\n1. Fahrzeug aus der Liste wählen (Kennzeichen, Marke, Halter sind sichtbar)\n2. Mechaniker auswählen (nur aktive Mechaniker)\n3. Annahmedatum, Fertigstellungstermin, Kilometerstand und Kundenwunsch eingeben\n4. Auftrag speichern\n\n## Schreibliste — the ONLY writes this flow makes (the gate compares your plan steps with this list)\n- creates `auftraege`:\n    - `fahrzeug`: from the record the user picks in this flow\n    - `mechaniker`: from the record the user picks in this flow\n    - `annahmedatum`: derived: today() — set it in the plan step, never ask\n    - `fertigstellungstermin`: the user enters it (bind it through the layer: form.field/…)\n    - `kilometerstand_annahme`: the user enters it (bind it through the layer: form.field/…)\n    - `kundenwunsch`: the user enters it (bind it through the layer: form.field/…)\n    - `notizen`: the user enters it (bind it through the layer: form.field/…)\n    - `status`: fixed value `angenommen` — set it in the plan step's values, never ask\n\n## Reads\n- `fahrzeuge` columns kennzeichen, marke, modell, halter\n- `mitarbeiter` columns vorname, nachname, rolle\n\n## Success page\n- shows: `auftraege.auftragsnummer`, `auftraege.status`\n- next flows to offer: `position-erfassen`\n\n## Never write these — another flow or a tool owns them\n- `auftragspositionen.auftrag` (owner: intent `position-erfassen`)\n- `auftragspositionen.positionstyp` (owner: intent `position-erfassen`)\n- `auftragspositionen.bezeichnung` (owner: intent `position-erfassen`)\n- `auftragspositionen.menge` (owner: intent `position-erfassen`)\n- `auftragspositionen.einzelpreis` (owner: intent `position-erfassen`)\n- `auftragspositionen.mechaniker` (owner: intent `position-erfassen`)\n- `auftragspositionen.dauer_stunden` (owner: intent `position-erfassen`)\n- `auftragspositionen.teil` (owner: intent `position-erfassen`)\n- `rechnungen.auftrag` (owner: intent `rechnung-erstellen`)\n- `rechnungen.kunde` (owner: intent `rechnung-erstellen`)\n- `rechnungen.rechnungsdatum` (owner: intent `rechnung-erstellen`)\n- `rechnungen.faelligkeit` (owner: intent `rechnung-erstellen`)\n- `rechnungen.mwst` (owner: intent `rechnung-erstellen`)\n- `rechnungen.status` (owner: intent `rechnung-erstellen`)\n- `auftraege.status` (owner: intent `rechnung-erstellen`)\n- `auftraege.auftragsnummer` (owner: tool `auftragsnummer-vergeben`)\n- `rechnungen.rechnungsnummer` (owner: tool `rechnungsnummer-vergeben`)\n- `rechnungen.nettobetrag` (owner: tool `rechnungsnummer-vergeben`)\n- `rechnungen.bruttobetrag` (owner: tool `rechnungsnummer-vergeben`)\n- `teilebestand.bestand` (owner: tool `bestand-abziehen`)\n"
+    },
+    {
+      "slug": "position-erfassen",
+      "label": {
+        "de": "Position erfassen",
+        "en": "Add order position"
+      },
+      "description": "Mechaniker oder Annahme fügt einem Auftrag eine Position hinzu: entweder eine Arbeitsleistung (Zeit, Mechaniker) oder ein verbautes Teil aus dem Teilebestand. Bei Teilen wird geprüft, ob der Bestand ausreicht.",
+      "priority": "must",
+      "writes": [
+        {
+          "entity": "auftragspositionen",
+          "op": "create",
+          "when": "always",
+          "fields": {
+            "auftrag": "picked",
+            "positionstyp": "user",
+            "bezeichnung": "user",
+            "menge": "user",
+            "einzelpreis": "user",
+            "mechaniker": "picked",
+            "dauer_stunden": "user",
+            "teil": "picked"
+          }
+        }
+      ],
+      "brief": "# Flow `position-erfassen` — Position erfassen\nMechaniker oder Annahme fügt einem Auftrag eine Position hinzu: entweder eine Arbeitsleistung (Zeit, Mechaniker) oder ein verbautes Teil aus dem Teilebestand. Bei Teilen wird geprüft, ob der Bestand ausreicht.\n\n## Steps (in this order)\n1. Auftrag aus der Liste wählen\n2. Positionstyp wählen: Arbeit oder Teil\n3. Bei Arbeit: Bezeichnung, Menge, Einzelpreis, Mechaniker und Dauer eingeben\n4. Bei Teil: Teil aus Teilebestand wählen, Menge und Einzelpreis eingeben\n5. Position speichern\n\n## Schreibliste — the ONLY writes this flow makes (the gate compares your plan steps with this list)\n- creates `auftragspositionen`:\n    - `auftrag`: from the record the user picks in this flow\n    - `positionstyp`: the user enters it (bind it through the layer: form.field/…)\n    - `bezeichnung`: the user enters it (bind it through the layer: form.field/…)\n    - `menge`: the user enters it (bind it through the layer: form.field/…)\n    - `einzelpreis`: the user enters it (bind it through the layer: form.field/…)\n    - `mechaniker`: from the record the user picks in this flow\n    - `dauer_stunden`: the user enters it (bind it through the layer: form.field/…)\n    - `teil`: from the record the user picks in this flow\n\n## Reads\n- `auftraege` columns auftragsnummer, fahrzeug, status\n- `teilebestand` columns artikelnummer, bezeichnung, bestand, verkaufspreis\n- `mitarbeiter` columns vorname, nachname\n\n## Checks BEFORE the write (block the submit with the message when they fail)\n- stock_sufficient (stock=`teilebestand.bestand`, quantity=`auftragspositionen.menge`) — message: „Der Bestand des gewählten Teils reicht für die eingegebene Menge nicht aus.“\n\n## Success page\n- shows: `auftragspositionen.bezeichnung`, `auftragspositionen.menge`, `auftragspositionen.einzelpreis`\n- next flows to offer: `position-erfassen`, `rechnung-erstellen`\n\n## Never write these — another flow or a tool owns them\n- `auftraege.fahrzeug` (owner: intent `auftrag-anlegen`)\n- `auftraege.mechaniker` (owner: intent `auftrag-anlegen`)\n- `auftraege.annahmedatum` (owner: intent `auftrag-anlegen`)\n- `auftraege.fertigstellungstermin` (owner: intent `auftrag-anlegen`)\n- `auftraege.kilometerstand_annahme` (owner: intent `auftrag-anlegen`)\n- `auftraege.kundenwunsch` (owner: intent `auftrag-anlegen`)\n- `auftraege.notizen` (owner: intent `auftrag-anlegen`)\n- `auftraege.status` (owner: intent `auftrag-anlegen`)\n- `rechnungen.auftrag` (owner: intent `rechnung-erstellen`)\n- `rechnungen.kunde` (owner: intent `rechnung-erstellen`)\n- `rechnungen.rechnungsdatum` (owner: intent `rechnung-erstellen`)\n- `rechnungen.faelligkeit` (owner: intent `rechnung-erstellen`)\n- `rechnungen.mwst` (owner: intent `rechnung-erstellen`)\n- `rechnungen.status` (owner: intent `rechnung-erstellen`)\n- `auftraege.auftragsnummer` (owner: tool `auftragsnummer-vergeben`)\n- `rechnungen.rechnungsnummer` (owner: tool `rechnungsnummer-vergeben`)\n- `rechnungen.nettobetrag` (owner: tool `rechnungsnummer-vergeben`)\n- `rechnungen.bruttobetrag` (owner: tool `rechnungsnummer-vergeben`)\n- `teilebestand.bestand` (owner: tool `bestand-abziehen`)\n"
+    },
+    {
+      "slug": "rechnung-erstellen",
+      "label": {
+        "de": "Rechnung erstellen",
+        "en": "Create invoice"
+      },
+      "description": "Annahme wählt einen fertigen Auftrag und erstellt die Rechnung. Kunde wird automatisch aus dem Fahrzeug des Auftrags übernommen. Status wird auf 'offen' gesetzt; Rechnungsnummer vergibt das System.",
+      "priority": "must",
+      "writes": [
+        {
+          "entity": "rechnungen",
+          "op": "create",
+          "when": "always",
+          "fields": {
+            "auftrag": "picked",
+            "kunde": "picked",
+            "rechnungsdatum": "derived:today",
+            "faelligkeit": "user",
+            "mwst": "user",
+            "status": "fixed:offen"
+          }
+        },
+        {
+          "entity": "auftraege",
+          "op": "update",
+          "when": "always",
+          "fields": {
+            "status": "fixed:abgerechnet"
+          }
+        }
+      ],
+      "brief": "# Flow `rechnung-erstellen` — Rechnung erstellen\nAnnahme wählt einen fertigen Auftrag und erstellt die Rechnung. Kunde wird automatisch aus dem Fahrzeug des Auftrags übernommen. Status wird auf 'offen' gesetzt; Rechnungsnummer vergibt das System.\n\n## Steps (in this order)\n1. Fertigen Auftrag auswählen\n2. Rechnungsdatum und Fälligkeit eingeben\n3. MwSt-Satz eingeben\n4. Rechnung speichern\n\n## Schreibliste — the ONLY writes this flow makes (the gate compares your plan steps with this list)\n- creates `rechnungen`:\n    - `auftrag`: from the record the user picks in this flow\n    - `kunde`: from the record the user picks in this flow\n    - `rechnungsdatum`: derived: today() — set it in the plan step, never ask\n    - `faelligkeit`: the user enters it (bind it through the layer: form.field/…)\n    - `mwst`: the user enters it (bind it through the layer: form.field/…)\n    - `status`: fixed value `offen` — set it in the plan step's values, never ask\n- updates `auftraege`:\n    - `status`: fixed value `abgerechnet` — set it in the plan step's values, never ask\n\n## Reads\n- `auftraege` columns auftragsnummer, fahrzeug, status\n- `auftragspositionen` columns auftrag, menge, einzelpreis, positionstyp\n\n## Success page\n- shows: `rechnungen.rechnungsnummer`, `rechnungen.status`\n\n## Never write these — another flow or a tool owns them\n- `auftraege.fahrzeug` (owner: intent `auftrag-anlegen`)\n- `auftraege.mechaniker` (owner: intent `auftrag-anlegen`)\n- `auftraege.annahmedatum` (owner: intent `auftrag-anlegen`)\n- `auftraege.fertigstellungstermin` (owner: intent `auftrag-anlegen`)\n- `auftraege.kilometerstand_annahme` (owner: intent `auftrag-anlegen`)\n- `auftraege.kundenwunsch` (owner: intent `auftrag-anlegen`)\n- `auftraege.notizen` (owner: intent `auftrag-anlegen`)\n- `auftraege.status` (owner: intent `auftrag-anlegen`)\n- `auftragspositionen.auftrag` (owner: intent `position-erfassen`)\n- `auftragspositionen.positionstyp` (owner: intent `position-erfassen`)\n- `auftragspositionen.bezeichnung` (owner: intent `position-erfassen`)\n- `auftragspositionen.menge` (owner: intent `position-erfassen`)\n- `auftragspositionen.einzelpreis` (owner: intent `position-erfassen`)\n- `auftragspositionen.mechaniker` (owner: intent `position-erfassen`)\n- `auftragspositionen.dauer_stunden` (owner: intent `position-erfassen`)\n- `auftragspositionen.teil` (owner: intent `position-erfassen`)\n- `auftraege.auftragsnummer` (owner: tool `auftragsnummer-vergeben`)\n- `rechnungen.rechnungsnummer` (owner: tool `rechnungsnummer-vergeben`)\n- `rechnungen.nettobetrag` (owner: tool `rechnungsnummer-vergeben`)\n- `rechnungen.bruttobetrag` (owner: tool `rechnungsnummer-vergeben`)\n- `teilebestand.bestand` (owner: tool `bestand-abziehen`)\n"
+    }
+  ],
+  "public_pages": [],
+  "tools": [
+    {
+      "id": "auftragsnummer-vergeben",
+      "purpose": "Vergibt beim Anlegen eines Auftrags automatisch eine fortlaufende Auftragsnummer nach dem Muster A-JJJJ-001."
+    },
+    {
+      "id": "rechnungsnummer-vergeben",
+      "purpose": "Vergibt beim Anlegen einer Rechnung automatisch eine fortlaufende Rechnungsnummer nach dem Muster R-JJJJ-001. Berechnet außerdem Nettobetrag und Bruttobetrag aus den Positionen des zugehörigen Auftrags."
+    },
+    {
+      "id": "bestand-abziehen",
+      "purpose": "Zieht beim Anlegen einer Auftragsposition vom Typ 'Teil' die verwendete Menge vom Bestand des jeweiligen Teils ab."
+    }
+  ],
+  "ownership": {
+    "auftraege": {
+      "fahrzeug": "intent:auftrag-anlegen",
+      "mechaniker": "intent:auftrag-anlegen",
+      "annahmedatum": "intent:auftrag-anlegen",
+      "fertigstellungstermin": "intent:auftrag-anlegen",
+      "kilometerstand_annahme": "intent:auftrag-anlegen",
+      "kundenwunsch": "intent:auftrag-anlegen",
+      "notizen": "intent:auftrag-anlegen",
+      "status": "intent:rechnung-erstellen",
+      "auftragsnummer": "tool:auftragsnummer-vergeben"
+    },
+    "auftragspositionen": {
+      "auftrag": "intent:position-erfassen",
+      "positionstyp": "intent:position-erfassen",
+      "bezeichnung": "intent:position-erfassen",
+      "menge": "intent:position-erfassen",
+      "einzelpreis": "intent:position-erfassen",
+      "mechaniker": "intent:position-erfassen",
+      "dauer_stunden": "intent:position-erfassen",
+      "teil": "intent:position-erfassen"
+    },
+    "rechnungen": {
+      "auftrag": "intent:rechnung-erstellen",
+      "kunde": "intent:rechnung-erstellen",
+      "rechnungsdatum": "intent:rechnung-erstellen",
+      "faelligkeit": "intent:rechnung-erstellen",
+      "mwst": "intent:rechnung-erstellen",
+      "status": "intent:rechnung-erstellen",
+      "rechnungsnummer": "tool:rechnungsnummer-vergeben",
+      "nettobetrag": "tool:rechnungsnummer-vergeben",
+      "bruttobetrag": "tool:rechnungsnummer-vergeben"
+    },
+    "teilebestand": {
+      "bestand": "tool:bestand-abziehen"
+    }
+  },
+  "dashboard": {
+    "focus": [
+      "auftraege (Status-Übersicht: angenommen, in_arbeit, fertig)",
+      "teilebestand (Teile unter Mindestbestand)",
+      "rechnungen (offene Rechnungen)",
+      "fahrzeuge (HU bald fällig)"
+    ],
+    "hints": [
+      "Aufträge im Status 'fertig' warten auf Rechnungsstellung",
+      "Teile mit Bestand unter Mindestbestand sollten nachbestellt werden",
+      "Mechaniker-Verfügbarkeit (krank/urlaub) im Blick behalten"
+    ]
+  }
+}

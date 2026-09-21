@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": ["kundentyp"],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Name, Kontakt, Adresse). Keine numerischen Beziehungen oder Datumpaare. Kundentyp-Default auf 'Privat' gesetzt."
+    },
+    "Mitarbeiter": {
+      "placeholders_set": 6,
+      "defaults_keys": ["rolle", "status"],
+      "computed_keys": [],
+      "reason": "Mitarbeiter-Stammdaten mit Stundensatz. Der Satz wird in abhängigen Entities (Aufträge, Rechnungen) als Multiplikator genutzt — gehört aber nicht in computed dieser Entity. Rolle auf 'Mechaniker', Status auf 'Aktiv' gesetzt."
+    },
+    "Teilebestand": {
+      "placeholders_set": 8,
+      "defaults_keys": ["bestand", "mindestbestand"],
+      "computed_keys": [],
+      "reason": "Lager-Stammdaten (Artikel, Preise, Bestand). Keine internen Berechnungen; Teile werden in Auftragspositionen referenziert und dort multipliziert. Bestand auf 0, Mindestbestand auf 1."
+    },
+    "Fahrzeuge": {
+      "placeholders_set": 8,
+      "defaults_keys": ["hu_faellig"],
+      "computed_keys": [],
+      "reason": "Fahrzeug-Stammdaten (Kennzeichen, Marke, Modell, Kilometerstand, HU-Termin). Kilometerstand ist nur Infofeld, keine Berechnung. HU-Fällig auf +365 Tage vorgesetzt."
+    },
+    "Aufträge": {
+      "placeholders_set": 9,
+      "defaults_keys": ["annahmedatum", "fertigstellungstermin", "status"],
+      "computed_keys": [],
+      "reason": "Auftrags-Header mit Fahrzeug, Mechaniker, Datumsbereich, Status. Arbeits- und Material-Kosten entstehen durch 1:N Auftragspositionen, nicht durch Felder dieser Entity. Annahmedatum=heute, Fertigstellungstermin=+7 Tage, Status='Angenommen'."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 7,
+      "defaults_keys": ["positionstyp", "menge", "einzelpreis", "dauer_stunden"],
+      "computed_keys": ["positionskosten", "arbeitskosten", "teil_kosten", "_position_gesamt"],
+      "reason": "Position-Details mit bedingte Kostenberechnung. positionskosten=menge×einzelpreis (immer). arbeitskosten=stunden×stundensatz(mechaniker) wenn positionstyp='arbeit', sonst 0. teil_kosten=menge×verkaufspreis(teil) wenn positionstyp='teil', sonst 0. _position_gesamt als virtueller Aggregat-Key für alle drei."
+    },
+    "Rechnungen": {
+      "placeholders_set": 9,
+      "defaults_keys": ["rechnungsdatum", "faelligkeit", "status", "nettobetrag"],
+      "computed_keys": ["mwst", "bruttobetrag"],
+      "reason": "Rechnung mit expliziter Netto-Brutto-Trennung (Backend-Felder: nettobetrag, mwst, bruttobetrag vorhanden). mwst=nettobetrag×0.19, bruttobetrag=nettobetrag+mwst. Rechnungsdatum=heute, Fälligkeit=+14 Tage, Status='Offen'."
+    }
+  }
+}
