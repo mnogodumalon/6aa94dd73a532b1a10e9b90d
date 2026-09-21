@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": ["kundentyp"],
+      "computed_keys": [],
+      "reason": "Reine Kundenstammdaten (Name, Adresse, Kontakt). Keine Preisfelder, keine Berechnung erforderlich."
+    },
+    "Mitarbeiter": {
+      "placeholders_set": 6,
+      "defaults_keys": ["rolle", "status"],
+      "computed_keys": [],
+      "reason": "Stammdaten mit Stundensatz (wird in Auftragspositionen als Applookup-Target genutzt). Keine lokale Berechnung nötig."
+    },
+    "Teilebestand": {
+      "placeholders_set": 8,
+      "defaults_keys": ["bestand", "mindestbestand"],
+      "computed_keys": ["_gewinn_pro_stueck"],
+      "reason": "Lagerverwaltung mit Einkauf- und Verkaufspreis. Gewinn pro Stück als virtuelle Anzeige berechnet (Verkauf - Einkauf)."
+    },
+    "Fahrzeuge": {
+      "placeholders_set": 8,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Fahrzeugstammdaten mit Applookup auf Kunden (Halter). Keine Preisfelder, keine Berechnung."
+    },
+    "Aufträge": {
+      "placeholders_set": 9,
+      "defaults_keys": ["annahmedatum", "fertigstellungstermin", "status"],
+      "computed_keys": [],
+      "reason": "Auftragsverwaltung mit Status-Workflow. Kosten liegen in Auftragspositionen, nicht hier. Status standardmäßig 'Angenommen', Fälligkeit +14 Tage."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 8,
+      "defaults_keys": ["positionstyp", "menge"],
+      "computed_keys": ["_positionskosten"],
+      "reason": "Zeilenpositionen mit Menge × Einzelpreis. Virtuelle _positionskosten-Anzeige für jede Zeile berechnet. Positionstyp (Arbeit/Teil) standardmäßig auf 'Arbeit'."
+    },
+    "Rechnungen": {
+      "placeholders_set": 9,
+      "defaults_keys": ["rechnungsdatum", "faelligkeit", "status"],
+      "computed_keys": ["mwst", "bruttobetrag", "_rechnungsbetrag_gesamt"],
+      "reason": "Klassische Brutto-Rechnung (Netto + MwSt 19% = Brutto). Alle drei Beträge berechnet: MwSt aus Netto, Brutto aus Netto+MwSt, Gesamtbetrag als Anzeige. Rechnungsdatum = heute, Fälligkeit +14 Tage, Status = 'Offen'."
+    }
+  }
+}

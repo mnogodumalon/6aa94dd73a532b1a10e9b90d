@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "slug": "reparaturanfrage",
+      "type": "custom",
+      "entity": "fahrzeuge",
+      "title": "Reparaturanfrage",
+      "published": true,
+      "fields": [
+        "kennzeichen",
+        "marke",
+        "modell",
+        "kilometerstand",
+        "hu_faellig",
+        "halter"
+      ],
+      "policy": {
+        "fields": {
+          "kunden": {
+            "kundentyp": {
+              "hidden": true
+            }
+          },
+          "auftraege": {
+            "status": {
+              "hidden": true,
+              "fixed": "angenommen"
+            }
+          }
+        },
+        "lists": {},
+        "texts": {}
+      }
+    }
+  ]
+}

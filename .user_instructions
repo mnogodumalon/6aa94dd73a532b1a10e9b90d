@@ -1,0 +1,31 @@
+Werkstatt Auto Brandl:
+
+Wir sind eine freie Kfz-Werkstatt mit 6 Mitarbeitenden in Bamberg und brauchen eine Anwendung für unsere Aufträge von der Annahme bis zur Rechnung.
+
+Wer damit arbeitet:
+- Annahme (Büro): legt Kunden und Fahrzeuge an, nimmt Aufträge an, stellt Rechnungen
+- Mechaniker: sehen ihre Aufträge, tragen Arbeitszeit und verbaute Teile ein, setzen den Auftrag auf fertig
+- Chef: sieht alles, pflegt Teilepreise und Stundensätze
+
+Kunden
+Name, Kundentyp (Privat/Gewerbe), Telefon, E-Mail, Adresse, Notizen. Ein Kunde hat mehrere Fahrzeuge.
+
+Fahrzeuge
+Kennzeichen, Marke, Modell, Erstzulassung, Kilometerstand, Fahrgestellnummer, HU fällig, Halter (Kunde). Jedes Fahrzeug gehört genau einem Kunden.
+
+Mitarbeiter
+Vorname, Nachname, Rolle (Annahme/Mechaniker/Chef), Stundensatz, Status (aktiv/krank/urlaub), E-Mail.
+
+Aufträge
+Auftragsnummer (fortlaufend pro Jahr, Muster A-2026-001), Fahrzeug, Kunde (ergibt sich aus dem Fahrzeug), Annahmedatum, zugesagter Fertigstellungstermin, Kundenwunsch (Freitext), Status (Angenommen / In Arbeit / Fertig / Abgerechnet / Abgeholt), zuständiger Mechaniker, Kilometerstand bei Annahme, Notizen. Ein Auftrag hat mehrere Positionen.
+
+Positionen
+Gehören immer zu genau einem Auftrag. Positionstyp (Arbeit / Teil), Bezeichnung, Menge, Einzelpreis, Mechaniker, Dauer in Stunden bei Arbeit, verwendetes Teil aus dem Teilebestand bei Teilen. Der Gesamtpreis ergibt sich aus Menge mal Einzelpreis.
+
+Teilebestand
+Artikelnummer, Bezeichnung, Hersteller, Einkaufspreis, Verkaufspreis, Bestand, Mindestbestand, Lagerplatz. Wird ein Teil in einer Position verbaut, sinkt der Bestand.
+
+Rechnungen
+Rechnungsnummer (Muster R-2026-001), Auftrag, Kunde, Rechnungsdatum, Fälligkeit, Nettobetrag, MwSt, Bruttobetrag, Status (Offen / Bezahlt / Storniert), Zahlungseingang, PDF. Der Betrag ergibt sich aus den Positionen des Auftrags.
+
+Wichtig: Jede Beziehung soll nur in einer Richtung gespeichert werden. Das Fahrzeug kennt seinen Kunden, die Position kennt ihren Auftrag, der Auftrag kennt Fahrzeug und Mechaniker. Bitte keine Listenfelder in der Gegenrichtung anlegen.

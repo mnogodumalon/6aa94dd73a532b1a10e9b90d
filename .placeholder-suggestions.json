@@ -1,0 +1,75 @@
+{
+  "KundenDialog.tsx": {
+    "vorname":       "z. B. Max",
+    "nachname":      "z. B. Müller",
+    "kundentyp":     "Privat oder Gewerbe?",
+    "telefon":       "z. B. 089 123 456789",
+    "email":         "z. B. max@example.com",
+    "strasse":       "z. B. Hauptstraße",
+    "hausnummer":    "z. B. 42",
+    "plz":           "z. B. 80801",
+    "ort":           "z. B. München",
+    "notizen":       "Besonderheiten, Rabattvereinbarung, Zahlungsbedingungen..."
+  },
+  "MitarbeiterDialog.tsx": {
+    "email":         "z. B. max@werkstatt.de",
+    "vorname":       "z. B. Max",
+    "nachname":      "z. B. Schmidt",
+    "rolle":         "Annahme, Mechaniker oder Chef?",
+    "stundensatz":   "z. B. 55",
+    "status":        "Aktiv, Krank oder Urlaub?"
+  },
+  "TeilebestandDialog.tsx": {
+    "artikelnummer":   "z. B. ART-2024-001",
+    "bezeichnung":     "z. B. Bremsbelag Satz",
+    "hersteller":      "z. B. Bosch",
+    "einkaufspreis":   "z. B. 25,50",
+    "verkaufspreis":   "z. B. 42,00",
+    "bestand":         "z. B. 10",
+    "mindestbestand":  "z. B. 3",
+    "lagerplatz":      "z. B. A2-B05"
+  },
+  "FahrzeugeDialog.tsx": {
+    "kennzeichen":       "z. B. M-AB 1234",
+    "marke":             "z. B. BMW",
+    "modell":            "z. B. 5er",
+    "erstzulassung":     "Wann wurde das Auto zugelassen?",
+    "kilometerstand":    "z. B. 125000",
+    "fahrgestellnummer": "z. B. WBABC1234567890",
+    "hu_faellig":        "Wann ist die nächste HU fällig?",
+    "halter":            "Welcher Kunde ist Halter?"
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer":            "z. B. AU-2024-001",
+    "fahrzeug":                  "Welches Fahrzeug wird bearbeitet?",
+    "annahmedatum":              "Wann wurde der Auftrag angenommen?",
+    "fertigstellungstermin":     "Wann ist das Auto fertig?",
+    "kundenwunsch":              "Was wünscht sich der Kunde? Fehlerhafte Teile, besondere Wünsche...",
+    "status":                    "Angenommen, In Arbeit, Fertig, Abgerechnet oder Abgeholt?",
+    "mechaniker":                "Welcher Mechaniker ist zuständig?",
+    "kilometerstand_annahme":    "z. B. 125000",
+    "notizen":                   "Besonderheiten, Probleme, Extra-Infos..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag":           "Zu welchem Auftrag gehört diese Position?",
+    "positionstyp":      "Ist es eine Arbeit oder ein Teil?",
+    "bezeichnung":       "z. B. Bremsschleiferei, Wechsel Filteranlage",
+    "menge":             "z. B. 1",
+    "einzelpreis":       "z. B. 45,00",
+    "mechaniker":        "Welcher Mechaniker führt die Arbeit durch?",
+    "dauer_stunden":     "z. B. 2,5",
+    "teil":              "Welches Teil wird verwendet?"
+  },
+  "RechnungenDialog.tsx": {
+    "rechnungsnummer":    "z. B. RE-2024-001",
+    "auftrag":            "Zu welchem Auftrag gehört diese Rechnung?",
+    "kunde":              "Wer ist der Rechnungsempfänger?",
+    "rechnungsdatum":     "Wann wurde die Rechnung ausgestellt?",
+    "faelligkeit":        "Wann ist die Rechnung fällig?",
+    "nettobetrag":        "z. B. 250,00",
+    "mwst":               "z. B. 47,50",
+    "bruttobetrag":       "z. B. 297,50",
+    "status":             "Offen, Bezahlt oder Storniert?",
+    "zahlungseingang":    "Wann ist die Zahlung eingegangen?"
+  }
+}
