@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": ["kundentyp"],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Name, Kontakt, Adresse). Keine Dateumspare, keine applookup-Preis-Ziele, keine berechenbaren Größen."
+    },
+    "Mitarbeiter": {
+      "placeholders_set": 6,
+      "defaults_keys": ["rolle", "status"],
+      "computed_keys": [],
+      "reason": "Stammdaten mit Rolle und Stundensatz als Master-Tarif. Stundensatz wird von Auftragspositionen applookup-referenziert, nicht hier berechnet."
+    },
+    "Teilebestand": {
+      "placeholders_set": 8,
+      "defaults_keys": ["bestand", "mindestbestand"],
+      "computed_keys": [],
+      "reason": "Lagerverwaltung ohne interne Multiplikation. Einkaufs- und Verkaufspreise sind Master-Stammdaten, keine Computeds."
+    },
+    "Fahrzeuge": {
+      "placeholders_set": 8,
+      "defaults_keys": ["erstzulassung", "hu_faellig"],
+      "computed_keys": [],
+      "reason": "Fahrzeugstammdaten mit Datumsfeldern (Zulassung, HU-Fälligkeit). HU ist ein fester Termin, nicht als Dauer berechenbar. Halter ist Kundenverweis ohne Numerik."
+    },
+    "Aufträge": {
+      "placeholders_set": 9,
+      "defaults_keys": ["annahmedatum", "fertigstellungstermin", "status"],
+      "computed_keys": [],
+      "reason": "Auftragskopf mit Fahrzeug und Mechaniker-Applookup. Keine expliziten Arbeitsstunden oder Gesamtpreisfelder im Kopf — Details in Auftragspositionen."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 8,
+      "defaults_keys": ["positionstyp", "menge"],
+      "computed_keys": ["positionssumme", "arbeitskosten", "_position_gesamt"],
+      "reason": "Kernentity für Arbeitsvergütung. menge × einzelpreis (ARCHETYP 2: Produkt). applookup(mechaniker,stundensatz) × dauer_stunden (ARCHETYP 3: Lookup-Produkt). Zwei Geldbeträge → Gesamtbetrag-Total zwingend."
+    },
+    "Rechnungen": {
+      "placeholders_set": 9,
+      "defaults_keys": ["rechnungsdatum", "faelligkeit", "status"],
+      "computed_keys": ["mwst", "bruttobetrag"],
+      "reason": "Klare Netto-Brutto-Trennung (nettobetrag, mwst, bruttobetrag als Backend-Felder). Mwst = netto × 0.19, brutto = netto + mwst."
+    }
+  }
+}

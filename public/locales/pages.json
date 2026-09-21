@@ -1,0 +1,31 @@
+{
+  "pages": {
+    "en": {
+      " ist heute nicht da": " is not in today",
+      " sind heute nicht da": " are not in today",
+      "Alle Rechnungen bezahlt.": "All invoices paid.",
+      "Alle Teile ausreichend bevorratet.": "All parts sufficiently stocked.",
+      "Als bezahlt markieren": "Mark as paid",
+      "Auftrag → {0}": "Order → {0}",
+      "Bestand anpassen": "Adjust Stock",
+      "Bezahlt": "Paid",
+      "HU fällig im nächsten Monat": "MOT due next month",
+      "HU nächster Monat": "MOT Next Month",
+      "In Arbeit": "In Progress",
+      "Keine offenen Aufträge in der Werkstatt.": "No open orders in the workshop.",
+      "Mitarbeiter heute nicht da": "Employees not in today",
+      "Neue Rechnung": "New Invoice",
+      "Neuer Auftrag": "New Order",
+      "Offene Rechnungen": "Open Invoices",
+      "Rechnung als bezahlt markiert": "Invoice marked as paid",
+      "Rechnung erstellen": "Create Invoice",
+      "Teile nachbestellen": "Reorder Parts",
+      "fällig": "due",
+      "{0} Aufträge fertig — noch keine Rechnung gestellt.": "{0} orders done — no invoice issued yet.",
+      "{0} ist fertig — noch keine Rechnung gestellt.": "{0} is done — no invoice issued yet.",
+      "{0} von {1} Stück": "{0} of {1} units",
+      "überfällig": "overdue"
+    }
+  },
+  "v": 1
+}

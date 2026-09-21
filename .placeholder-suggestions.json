@@ -1,0 +1,75 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "kundentyp": "Privat oder Gewerbe?",
+    "telefon": "z. B. 0123 456789",
+    "email": "z. B. max@example.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 12345",
+    "ort": "z. B. Berlin",
+    "notizen": "Besonderheiten, Anmerkungen..."
+  },
+  "MitarbeiterDialog.tsx": {
+    "email": "z. B. anna@brandl.de",
+    "vorname": "z. B. Anna",
+    "nachname": "z. B. Schmidt",
+    "rolle": "Annahme, Mechaniker oder Chef?",
+    "stundensatz": "z. B. 45",
+    "status": "Aktiv, Krank oder Urlaub?"
+  },
+  "TeilebestandDialog.tsx": {
+    "artikelnummer": "z. B. BL-001",
+    "bezeichnung": "z. B. Bremsbelag",
+    "hersteller": "z. B. Bosch",
+    "einkaufspreis": "z. B. 12,50",
+    "verkaufspreis": "z. B. 18,50",
+    "bestand": "z. B. 5",
+    "mindestbestand": "z. B. 2",
+    "lagerplatz": "z. B. A3-12"
+  },
+  "FahrzeugeDialog.tsx": {
+    "kennzeichen": "z. B. B-AA-123",
+    "marke": "z. B. VW",
+    "modell": "z. B. Golf",
+    "erstzulassung": "Wann wurde das Fahrzeug zugelassen?",
+    "kilometerstand": "z. B. 145000",
+    "fahrgestellnummer": "z. B. WVWZZZ1JZGE000000",
+    "hu_faellig": "Wann ist die nächste HU fällig?",
+    "halter": "Welcher Kunde ist der Halter?"
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-042",
+    "fahrzeug": "Welches Fahrzeug wird bearbeitet?",
+    "annahmedatum": "Wann wurde der Auftrag angenommen?",
+    "fertigstellungstermin": "Wann soll es fertig sein?",
+    "kundenwunsch": "Was wünscht sich der Kunde? Reparatur, Wartung, Modifizierung...",
+    "status": "Angenommen, In Arbeit, Fertig...?",
+    "mechaniker": "Wer ist der zuständige Mechaniker?",
+    "kilometerstand_annahme": "z. B. 145000",
+    "notizen": "Besonderheiten, Erschwernisse, Probleme..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Zu welchem Auftrag gehört diese Position?",
+    "positionstyp": "Arbeit oder Teil?",
+    "bezeichnung": "z. B. Ölwechsel, Scheinwerfer",
+    "menge": "z. B. 1",
+    "einzelpreis": "z. B. 45,00",
+    "mechaniker": "Welcher Mechaniker führt die Arbeit aus?",
+    "dauer_stunden": "z. B. 2",
+    "teil": "Welches Teil wird verwendet?"
+  },
+  "RechnungenDialog.tsx": {
+    "rechnungsnummer": "z. B. R-2026-0123",
+    "auftrag": "Welcher Auftrag wird abgerechnet?",
+    "kunde": "Wer ist der Rechnungsempfänger?",
+    "rechnungsdatum": "Wann wird die Rechnung ausgestellt?",
+    "faelligkeit": "Wann ist die Rechnung fällig?",
+    "nettobetrag": "z. B. 250,00",
+    "mwst": "wird berechnet",
+    "bruttobetrag": "wird berechnet",
+    "status": "Offen, Bezahlt oder Storniert?",
+    "zahlungseingang": "Wann ist das Geld eingegangen?"
+  }
+}
