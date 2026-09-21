@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": ["kundentyp"],
+      "computed_keys": [],
+      "reason": "Reine Stammdatenverwaltung (Text, Adresse, Kontakt). Keine Preise, Mengen oder berechenbaren Größen. Kundentyp hat einen sinnvollen Default (Privat)."
+    },
+    "Mitarbeiter": {
+      "placeholders_set": 6,
+      "defaults_keys": ["rolle", "status"],
+      "computed_keys": [],
+      "reason": "Mitarbeiterstammdaten mit Stundensatz (wird nur als applookup-Ziel verwendet, nicht lokal berechnet). Rolle und Status haben häufige Anfangswerte."
+    },
+    "Teilebestand": {
+      "placeholders_set": 8,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Lagerbestandsverwaltung mit Preisen. Keine Berechnung sinnvoll (Einkaufs-/Verkaufspreise und Mengen sind unabhängig). Keine numerische Abhängigkeiten innerhalb der Form."
+    },
+    "Fahrzeuge": {
+      "placeholders_set": 8,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Fahrzeugstammdaten ohne berechenbare Größen. Kilometerstand, Erstzulassung und HU-Fälligkeit sind reine Eingabefelder ohne Abhängigkeiten."
+    },
+    "Aufträge": {
+      "placeholders_set": 9,
+      "defaults_keys": ["annahmedatum", "status"],
+      "computed_keys": ["_auftrag_bearbeitungstage"],
+      "reason": "Werstatt-Auftrag mit Zeitspanne (annahmedatum + fertigstellungstermin). Datumspaarung ergibt sinnvolle Bearbeitungstage-Anzeige für Übersicht. Keine Preis-Berechnung hier (Positionen in separater Entity)."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 8,
+      "defaults_keys": ["menge", "positionstyp"],
+      "computed_keys": ["_position_gesamt_preis"],
+      "reason": "Hybrid: Arbeit (Stunden × Stundensatz) oder Teil (Menge × Verkaufspreis). MODUS-2 mit Conditional (positionstyp steuert, welche Berechnung). Zeigt die Position-Kosten zur Aggregation auf Rechnung."
+    },
+    "Rechnungen": {
+      "placeholders_set": 10,
+      "defaults_keys": ["rechnungsdatum", "faelligkeit", "status"],
+      "computed_keys": ["mwst", "bruttobetrag", "_tage_bis_faelligkeit"],
+      "reason": "Klassische Netto-Brutto-Rechnung. MwSt (19%) und Bruttobetrag aus Netto. Datumspaarung (rechnungsdatum + faelligkeit) ergibt Tage-bis-Fälligkeit für Fälligkeitsübersicht. Beide Date-Defaults mit withTime=false (date, nicht datetimeminute)."
+    }
+  }
+}

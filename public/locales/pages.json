@@ -1,0 +1,41 @@
+{
+  "pages": {
+    "en": {
+      " — Termin war {0}.": " — Appointment was {0}.",
+      "Alle": "All",
+      "Alle Teile ausreichend bevorratet.": "All parts sufficiently stocked.",
+      "Als abgerechnet markieren": "Mark as Invoiced",
+      "Als bezahlt markieren": "Mark as Paid",
+      "Auftrag — {0}": "Order — {0}",
+      "Bearbeiten": "Edit",
+      "Bestand: {0} / mind. {1}": "Stock: {0} / min. {1}",
+      "Bezahlt": "Paid",
+      "Fertig melden": "Mark as Done",
+      "Fertig — offen zur Rechnung": "Done — open for invoicing",
+      "Fällig": "Due",
+      "Fällige Rechnungen": "Due Invoices",
+      "In Arbeit setzen": "Set to In Progress",
+      "In Arbeit: {0}.": "In Progress: {0}.",
+      "Keine offenen Aufträge — ruhiger Tag!": "No open orders — quiet day!",
+      "Keine offenen Rechnungen — alles bezahlt!": "No open invoices — all paid!",
+      "Neue Rechnung": "New Invoice",
+      "Neuer Auftrag": "New Order",
+      "Offen": "Open",
+      "Offene Rechnungen": "Open Invoices",
+      "Ohne Kennzeichen": "No Licence Plate",
+      "Rechnung als bezahlt markiert": "Invoice marked as paid",
+      "Rechnungen ansehen": "View Invoices",
+      "Teile nachbestellen": "Reorder Parts",
+      "Teile unter Mindestbestand": "Parts below minimum stock",
+      "Teilebestand verwalten": "Manage Parts Inventory",
+      "Unbekannt": "Unknown",
+      "Unbekanntes Teil": "Unknown Part",
+      "ist überfällig": "is overdue",
+      "sind überfällig": "are overdue",
+      "{0} offene {1}": "{0} open {1}",
+      "{0} offene {1} — alle im Zeitplan.": "{0} open {1} — all on schedule.",
+      "{0} — überfällig.": "{0} — overdue."
+    }
+  },
+  "v": 1
+}
